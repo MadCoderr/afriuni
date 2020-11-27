@@ -1,0 +1,39 @@
+.tabMenu {
+
+  @apply text-custom-primary font-normal cursor-pointer px-5 py-6 h-full inline-flex justify-center items-center;
+
+}
+
+.tabMenuOpen {
+  @apply shadow-none bg-white text-custom-primary;
+}
+
+@screen md {
+
+  .tabMenu {
+    &:hover{
+      @apply shadow-lg;
+    }
+  }
+
+  .tabMenuOpen {
+    @apply shadow-lg;
+  }
+
+}
+
+
+
+.tabCategory {
+
+  @apply text-left flex items-center;
+
+  &:hover{
+    @apply text-custom-secondary;
+  }
+
+  &:focus{
+    @apply outline-none;
+  }
+
+}

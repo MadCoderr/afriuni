@@ -27,7 +27,8 @@
     "postcss-preset-env": "^6.7.0",
     "tailwind.macro": "^1.0.0-alpha.10",
     "tailwindcss": "^1.9.5",
-    "tailwindcss-multi-column": "^1.0.2"
+    "tailwindcss-multi-column": "^1.0.2",
+    "node-fetch": ">=2.6.1"
   },
   "dependencies": {
     "@apollo/client": "^3.2.5",

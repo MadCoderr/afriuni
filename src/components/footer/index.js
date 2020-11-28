@@ -71,8 +71,8 @@ const Footer = (props) => {
                     <div className="hidden md:block"/>
                     <div className="flex items-center justify-center space-x-5">
                         <Link href="/">
-                            <a className="bg-blue-700 text-white text-xl px-4 py-2 rounded-full">
-                                <FontAwesomeIcon icon={faFacebookF} className="w-20"/>
+                            <a className="bg-blue-700 text-white text-xl px-4 py-3 rounded-full">
+                                <FontAwesomeIcon icon={faFacebookF} className="w-3"/>
                             </a>
                         </Link>
                     </div>

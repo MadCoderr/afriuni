@@ -38,7 +38,7 @@ const CategoryMenu = (props) => {
         ) : (
             <>
                 <h3 className="bg-custom-primary md:bg-white text-white md:text-custom-primary2 text-base font-medium md:font-normal md:text-xl  md:mt-6 py-4 px-5 md:p-0 hidden md:block">Courses</h3>
-                <div className="bg-custom-primary text-white md:text-custom-primary2 text-base font-medium md:text-xl  md:mt-6 py-4 px-5 md:p-0 md:hidden" onClick={closeTabContent}>
+                <div className="bg-custom-primary text-white md:text-custom-primary2 text-base font-medium md:text-xl md:mt-6 py-4 px-5 md:p-0 md:hidden flex items-center" onClick={closeTabContent}>
                     <FontAwesomeIcon icon={faChevronLeft} className="mr-2 h-3 w-3"/> Back to main categories
                 </div>
             </>

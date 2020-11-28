@@ -1,9 +1,10 @@
 module.exports = {
     future: {
+        removeDeprecatedGapUtilities: true,
         purgeLayersByDefault: true,
         defaultLineHeights: true,
     },
-    purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
+    purge: ['./src/components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
     theme: {
         truncate: {
             lines: {
@@ -87,9 +88,9 @@ module.exports = {
         columnSpan: ['responsive'],
     },
     plugins: [
-        require('@tailwindcss/ui'),
-        require('@tailwindcss/custom-forms'),
         require('tailwindcss-multi-column')(),
+        // require('@tailwindcss/custom-forms'),
+        require('@tailwindcss/forms'),
         require('tailwindcss-truncate-multiline')(['responsive', 'hover']),
     ],
 }

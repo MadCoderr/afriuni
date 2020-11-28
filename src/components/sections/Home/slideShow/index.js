@@ -64,8 +64,8 @@ const SlideShowSection = () => {
                     <div className="absolute bottom-0 left-0 py-4 px-2 md:px-6 font-medium text-white text-sm md:text-base">
                         Ashesi University
                     </div>
-                    <div className="absolute bottom-0 right-0  py-4 px-2 md:px-6 font-medium text-white text-sm md:text-base">
-                       <FontAwesomeIcon icon={faMapMarkerAlt} /> Accra, Ghana
+                    <div className="absolute bottom-0 right-0 py-4 px-2 md:px-4 font-medium text-white text-sm md:text-base flex items-end">
+                       <FontAwesomeIcon icon={faMapMarkerAlt} className="w-5 mr-3"/> Accra, Ghana
                     </div>
                 </div>
 
@@ -80,8 +80,8 @@ const SlideShowSection = () => {
                     <div className="absolute bottom-0 left-0 py-4 px-2 md:px-6 font-medium text-white text-sm md:text-base">
                         Ashesi University
                     </div>
-                    <div className="absolute bottom-0 right-0  py-4 px-2 md:px-6 font-medium text-white text-sm md:text-base">
-                        <FontAwesomeIcon icon={faMapMarkerAlt} /> Accra, Ghana
+                    <div className="absolute bottom-0 right-0 py-4 px-2 md:px-4 font-medium text-white text-sm md:text-base flex items-end">
+                        <FontAwesomeIcon icon={faMapMarkerAlt} className="w-5 mr-3" /> Accra, Ghana
                     </div>
                 </div>
 

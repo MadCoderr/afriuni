@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import '../styles/tailwind.css'
 import Head from "next/head";
 import {ApolloProvider} from "@apollo/client";
 import "slick-carousel/slick/slick.css";

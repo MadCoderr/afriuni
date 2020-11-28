@@ -8,6 +8,6 @@ const OthersMenu = () => {
 
     menu others
     </>
-}
+};
 
 export default OthersMenu;

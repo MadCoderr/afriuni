@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from "next/link";
-import HomeDestinationCard from "../../../cards/homeDestinationCard";
+import DestinationCard from "../../../cards/DestinationCard";
 
 
 const DestinationSection = (props) => {
@@ -17,16 +17,16 @@ const DestinationSection = (props) => {
 
             <div className="mt-5 md:mt-10 grid md:grid-cols-5 grid-cols-2 gap-x-3 md:gap-x-6 gap-y-4 md:gap-y-8">
 
-                <HomeDestinationCard/>
-                <HomeDestinationCard/>
-                <HomeDestinationCard/>
-                <HomeDestinationCard/>
-                <HomeDestinationCard/>
-                <HomeDestinationCard/>
-                <HomeDestinationCard/>
-                <HomeDestinationCard/>
-                <HomeDestinationCard/>
-                <HomeDestinationCard/>
+                <DestinationCard/>
+                <DestinationCard/>
+                <DestinationCard/>
+                <DestinationCard/>
+                <DestinationCard/>
+                <DestinationCard/>
+                <DestinationCard/>
+                <DestinationCard/>
+                <DestinationCard/>
+                <DestinationCard/>
 
 
             </div>

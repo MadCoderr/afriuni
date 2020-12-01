@@ -3,18 +3,20 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronDown} from "@fortawesome/free-solid-svg-icons";
 
 
-const Dropdown = ({ title, className = '', classDropdown = '', position = 'right', children, maxHeight = ""}) => {
+const Dropdown = ({ title, className = '', classDropdown = '', classChevron = '', position = 'right', children, maxHeight = ""}) => {
 
     const [initPosition, setInitPosition] = React.useState('origin-top-right right-0');
     const [isOpen, setIsOpen] = React.useState(false);
     const [currentTitle, setCurrentTitle] = React.useState(title);
     const [currentIndex, setCurrentIndex] = React.useState(0);
+    const container = React.useRef('');
 
     const childrenElement = React.Children.map(children, (child, index) => {
         return React.cloneElement(child, {
             index,
             isActive: currentIndex === index,
-            onChangeTitle: (title) => {
+            onChangeTitle: (e, href, title) => {
+                if(href === '#') e.preventDefault();
                 setCurrentTitle(title);
                 setCurrentIndex(index);
                 setIsOpen(false);
@@ -34,10 +36,35 @@ const Dropdown = ({ title, className = '', classDropdown = '', position = 'right
         setIsOpen(!isOpen);
     };
 
-    return <div className="relative">
+
+    React.useEffect(() => {
+
+        window.addEventListener('click', addBackDrop);
+
+        return () => {
+            window.removeEventListener('click', addBackDrop);
+        }
+
+    }, [isOpen]);
+
+    const addBackDrop = e => {
+
+        const currentClick = e.target;
+
+        if(container.current !== null) {
+
+            const checkContainer = container.current.contains(currentClick);
+            if(container && !checkContainer) {
+                setIsOpen(false);
+            }
+        }
+
+    };
+
+    return <div className="relative" ref={container}>
 
         <div className={className} onClick={openDropdown}>
-            {currentTitle} <FontAwesomeIcon icon={faChevronDown} className="ml-1 h-3 w-3"/>
+            {currentTitle} <div className={classChevron}><FontAwesomeIcon icon={faChevronDown} className="ml-1 h-3 w-3"/></div>
         </div>
 
         {isOpen && (
@@ -68,7 +95,7 @@ export const ItemDropdown = ({
      isActive
 }) => {
 
-    return <a href={href} className={`block px-4 py-2 leading-5 focus:outline-none ${className} ${classInactive} ${isActive ? classActive : ""}`} role="menuitem" onClick={() => onChangeTitle(value)}>
+    return <a href={href} className={`block px-4 py-2 leading-5 focus:outline-none ${className} ${classInactive} ${isActive ? classActive : ""}`} role="menuitem" onClick={(e) => onChangeTitle(e, href, value)}>
         {children}
     </a>
 

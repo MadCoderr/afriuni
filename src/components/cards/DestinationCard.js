@@ -2,10 +2,10 @@ import React from 'react';
 import Link from "next/link";
 
 
-const HomeDestinationCard = (props) => {
+const DestinationCard = (props) => {
 
     return <div className="relative z-20">
-        <Link href="/">
+        <Link href="/country/south-africa">
             <a className="block relative">
                 <img src="southAfricaTown.jpeg" alt="" className="h-32 w-full md:h-48 rounded-xl"/>
 
@@ -17,4 +17,4 @@ const HomeDestinationCard = (props) => {
     </div>
 };
 
-export default HomeDestinationCard;
+export default DestinationCard;

@@ -3,6 +3,7 @@ import Head from "next/head";
 import {ApolloProvider} from "@apollo/client";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import 'react-accessible-accordion/dist/fancy-example.css';
 import client from "../src/apollo/client";
 import Header from "../src/components/header";
 import Footer from "../src/components/footer";
@@ -19,11 +20,13 @@ function MyApp({ Component, pageProps }) {
         </Head>
 
 
-          <Header/>
+          <div className="relative flex flex-col justify-between">
+              <Header/>
 
-          <Component {...pageProps} />
+              <Component {...pageProps} />
 
-          <Footer/>
+              <Footer/>
+          </div>
 
       </ApolloProvider>
   )

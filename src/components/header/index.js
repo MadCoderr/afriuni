@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../../styles/Header.module.scss';
+import styles from '../../../styles/globals.module.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars, faChevronDown, faTimes} from "@fortawesome/free-solid-svg-icons";
 import {ButtonPrimary} from "../styleComponent/button";
@@ -9,6 +9,7 @@ import CountryMenu from "./country";
 import { useMediaQuery } from 'react-responsive';
 import {ContainerNavStyle} from "./styles";
 import OthersMenu from "./others";
+import Link from "next/link";
 
 
 const Header = () => {
@@ -17,8 +18,10 @@ const Header = () => {
     const [openCountry, setOpenCountry] = React.useState(false);
     const [openOther, setOpenOther] = React.useState(false);
 
+    const container = React.useRef('');
+
     const isMobile = useMediaQuery({ maxWidth: 767 });
-    const [isOpen, setIsOpen] = React.useState(true);
+    const [isOpen, setIsOpen] = React.useState(false);
     const [isCurrentMobile, setIsCurrentMobile] = React.useState(false);
 
     React.useEffect(() =>{
@@ -50,6 +53,34 @@ const Header = () => {
             setOpenOther(false);
         }
         setIsOpen(!isOpen);
+
+    };
+
+    React.useEffect(() => {
+
+        window.addEventListener('click', addBackDrop);
+
+        return () => {
+            window.removeEventListener('click', addBackDrop);
+        }
+
+    }, [openCategory, openCountry, openOther]);
+
+    const addBackDrop = e => {
+
+        const currentClick = e.target;
+
+        if(container.current !== null) {
+
+            const checkContainer = container.current.contains(currentClick);
+            if(container && !checkContainer) {
+                if(!isCurrentMobile){
+                    setOpenOther(false);
+                    setOpenCategory(false);
+                    setOpenCountry(false);
+                }
+            }
+        }
 
     };
 
@@ -85,14 +116,18 @@ const Header = () => {
         setOpenCountry(false)
     };
 
-    return <ContainerNavStyle className={`${isOpen ? "openNav" : ""} bg-white shadow-md fixed w-full relative inline-block`}>
+    return <>
+
+        <ContainerNavStyle className={`${isOpen ? "openNav" : ""} bg-white shadow-md fixed w-full relative inline-block`}>
         <div className="container mx-auto px-4 text-sm py-4 md:py-0">
             <nav className="flex justify-between items-center">
                 <div className="md:w-4/5 block md:flex justify-start md:space-x-10 items-center">
                     <div>
-                        <img src="logo.png" alt="" className="md:h-10 h-8"/>
+                        <Link href="/">
+                            <a><img src="../logo.png" alt="" className="md:h-10 h-8"/></a>
+                        </Link>
                     </div>
-                    <div className={`menuMobile ${isOpen ? "open" : ""} md:fixed md:relative z-20 bg-custom-body md:bg-white left-0 right-0 top-0 md:h-auto md:w-4/5 h-screen`}>
+                    <div className={`menuMobile ${isOpen ? "open" : ""} md:fixed md:relative z-20 bg-custom-body md:bg-white left-0 right-0 top-0 md:h-auto md:w-4/5 h-screen`} ref={container}>
                         <div className="md:flex justify-between items-center md:space-x-20">
                             <div className="flex items-center">
                                 <div className={`${styles.tabMenu} ${openCategory ? styles.tabMenuOpen : ""}`} onClick={isOpenCategory}>
@@ -136,6 +171,7 @@ const Header = () => {
                                 </div>
                             </div>
                         )}
+
                     </div>
                 </div>
                 <div className="flex space-x-5 items-center">
@@ -153,8 +189,11 @@ const Header = () => {
         </div>
 
 
-
     </ContainerNavStyle>
+
+        {/*<div className="absolute inset-0">*/}
+        {/*</div>*/}
+    </>
 };
 
 export default Header;

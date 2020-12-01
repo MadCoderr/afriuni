@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../../../../styles/Header.module.scss";
+import styles from "../../../../styles/globals.module.scss";
 import Link from "next/link";
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';

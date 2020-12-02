@@ -5,7 +5,7 @@ const CountryMenu = () => {
 
     return <>
 
-        <h3 className="bg-custom-primary md:bg-white text-white md:text-custom-primary2 text-base font-medium md:font-normal md:text-xl  md:mt-6 py-4 px-5 md:p-0">African Country</h3>
+        <h3 className="bg-custom-primary md:bg-white text-white md:text-custom-primary_2 text-base font-medium md:font-normal md:text-xl  md:mt-6 py-4 px-5 md:p-0">African Country</h3>
 
         <div className="flex flex-col md:flex-row md:space-x-5 md:py-5 bg-white h-full">
 

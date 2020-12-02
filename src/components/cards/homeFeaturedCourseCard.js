@@ -17,7 +17,7 @@ const HomeFeaturedCourseCard = (props) => {
         </Link>
         <div className="flex justify-between items-end w-full flex-1">
             <div className="w-full">
-                <div className="text-custom-primary md:text-custom-primary2 font-medium text-sm md:text-lg">
+                <div className="text-custom-primary md:text-custom-primary_2 font-medium text-sm md:text-lg">
                     <Link href="/">
                         <a>
                             Lagos State University

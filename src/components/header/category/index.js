@@ -34,11 +34,11 @@ const CategoryMenu = (props) => {
 
     return <>
         {!clickedTab ? (
-            <h3 className="bg-custom-primary md:bg-white text-white md:text-custom-primary2 text-base font-medium md:font-normal md:text-xl  md:mt-6 py-4 px-5 md:p-0">Courses</h3>
+            <h3 className="bg-custom-primary md:bg-white text-white md:text-custom-primary_2 text-base font-medium md:font-normal md:text-xl  md:mt-6 py-4 px-5 md:p-0">Courses</h3>
         ) : (
             <>
-                <h3 className="bg-custom-primary md:bg-white text-white md:text-custom-primary2 text-base font-medium md:font-normal md:text-xl  md:mt-6 py-4 px-5 md:p-0 hidden md:block">Courses</h3>
-                <div className="bg-custom-primary text-white md:text-custom-primary2 text-base font-medium md:text-xl md:mt-6 py-4 px-5 md:p-0 md:hidden flex items-center" onClick={closeTabContent}>
+                <h3 className="bg-custom-primary md:bg-white text-white md:text-custom-primary_2 text-base font-medium md:font-normal md:text-xl  md:mt-6 py-4 px-5 md:p-0 hidden md:block">Courses</h3>
+                <div className="bg-custom-primary text-white md:text-custom-primary_2 text-base font-medium md:text-xl md:mt-6 py-4 px-5 md:p-0 md:hidden flex items-center" onClick={closeTabContent}>
                     <FontAwesomeIcon icon={faChevronLeft} className="mr-2 h-3 w-3"/> Back to main categories
                 </div>
             </>
@@ -49,7 +49,7 @@ const CategoryMenu = (props) => {
 
         <Tabs className='flex flex-col md:flex-row md:divide-x-2 md:py-5 relative h-full' selectedIndex={tabIndex} onSelect={onSelectTab}>
 
-            <TabList className="text-custom-primary2 bg-white h-full">
+            <TabList className="text-custom-primary_2 bg-white h-full">
                 <Tab className={`${styles.tabCategory} space-x-3 px-5 py-3 md:p-0 border-b md:border-0 md:mb-2`} selectedClassName={`md:text-custom-secondary focus:outline-none`}>
                     <img src="icone-category.png" alt="" className="h-8 md:h-10"/>
                     <div className={"w-56"}>

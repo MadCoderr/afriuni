@@ -14,7 +14,7 @@
 html,
 body {
     font-family: "Roboto", sans-serif !important;
-    @apply bg-custom-body text-custom-primary2 leading-relaxed font-light text-base;
+    @apply bg-custom-body text-custom-primary_2 leading-relaxed font-light text-base;
 }
 
 /*html {*/

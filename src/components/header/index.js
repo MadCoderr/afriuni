@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../../../styles/globals.module.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars, faChevronDown, faTimes} from "@fortawesome/free-solid-svg-icons";
-import {ButtonPrimary} from "../styleComponent/button";
+import {ButtonRedPrimary} from "../styleComponent/button";
 import Dropdown, { ItemDropdown } from "../general/dropdown";
 import CategoryMenu from "./category";
 import CountryMenu from "./country";
@@ -175,12 +175,12 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="flex space-x-5 items-center">
-                    <Dropdown title={"XAF"}  classDropdown="mt-1 w-auto rounded-md shadow-lg" className="font-semibold text-custom-primary2 cursor-pointer inline-flex justify-center items-center py-6 hidden md:flex">
+                    <Dropdown title={"XAF"}  classDropdown="mt-1 w-auto rounded-md shadow-lg" className="font-semibold text-custom-primary_2 cursor-pointer inline-flex justify-center items-center py-6 hidden md:flex">
                         <ItemDropdown value={"XAF"}>XAF</ItemDropdown>
                         <ItemDropdown value={"EURO"}>EURO</ItemDropdown>
                         <ItemDropdown value={"USD"}>USD</ItemDropdown>
                     </Dropdown>
-                    <ButtonPrimary className="rounded-lg text-sm hidden md:inline-block">+ Add your university</ButtonPrimary>
+                    <ButtonRedPrimary className="rounded-lg text-sm hidden md:inline-block">+ Add your university</ButtonRedPrimary>
                     <div className="md:hidden" onClick={toggleNav}>
                         <FontAwesomeIcon icon={faBars} className="w-5 text-custom-primary"/>
                     </div>

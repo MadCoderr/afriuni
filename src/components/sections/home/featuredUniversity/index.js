@@ -14,7 +14,7 @@ const FeaturedUniversitySection = (props) => {
 
         <div className="container mx-auto px-4 transform -skew-y-3">
 
-            <h3 className="text-center md:text-left text-2xl md:text-5xl font-medium text-custom-primary2 mt-5 md:mb-10">Featured Universities</h3>
+            <h3 className="text-center md:text-left text-2xl md:text-5xl font-medium text-custom-primary_2 mt-5 md:mb-10">Featured Universities</h3>
 
             <div className="mt-5 md:mt-10 grid md:grid-cols-3 grid-cols-2 gap-x-2 gap-y-3 md:gap-y-6 grid-flow-row auto-rows-fr auto-cols-fr">
 

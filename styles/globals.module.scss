@@ -47,7 +47,19 @@
 .accordion {
   @apply border border-gray-100;
 
-  .accodion_heading {
+  .accordion_heading {
     @apply flex md:justify-between items-center focus:outline-none pl-6 border-b border-gray-100;
+  }
+}
+
+.accordion_2 {
+   @apply bg-transparent;
+
+  .accordion_heading {
+    @apply flex justify-between items-stretch focus:outline-none pl-6 py-5;
+  }
+
+  .accordion_subheading{
+    @apply flex px-4 space-x-3 focus:outline-none items-stretch;
   }
 }

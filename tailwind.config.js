@@ -37,9 +37,10 @@ module.exports = {
             colors: {
                 custom: {
                     primary: "#007AA1",
+                    primary_2: "#05293C",
+                    primary_3 : "#017AA1",
                     secondary: "#FB5C3B",
                     body: "#F0F4F8",
-                    primary2: "#05293C"
                 }
             },
             minWidth: {
@@ -68,7 +69,17 @@ module.exports = {
             },
             height : {
                 "300": "300px",
-                "500":"500px"
+                "500":"500px",
+                "600" : "600px",
+                "700" : "700px",
+                "800" : "800px"
+            },
+            width : {
+                "300": "300px",
+                "500":"500px",
+                "600" : "600px",
+                "700" : "700px",
+                "800" : "800px"
             }
         }
     },

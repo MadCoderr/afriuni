@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import Dropdown, {ItemDropdown} from "../../../general/dropdown";
 import {Input} from "../../../styleComponent/input";
-import {ButtonPrimary} from "../../../styleComponent/button";
+import {ButtonRedPrimary} from "../../../styleComponent/button";
 
 const SlideShowSection = () => {
 
@@ -44,7 +44,7 @@ const SlideShowSection = () => {
                                 </Dropdown>
                             </div>
                             <Input className={"h-10 md:h-14 text-sm md:text-base col-span-8 md:col-span-8 form-input"} placeholder="Search Courses  e.g Nursing, Economics, Computer Science, Agriculture"/>
-                            <ButtonPrimary className="h-10 md:h-14 col-span-4 md:col-span-2 flex items-center justify-center text-sm md:text-lg rounded-lg">Search</ButtonPrimary>
+                            <ButtonRedPrimary className="h-10 md:h-14 col-span-4 md:col-span-2 flex items-center justify-center text-sm md:text-lg rounded-lg">Search</ButtonRedPrimary>
                         </div>
                     </div>
 

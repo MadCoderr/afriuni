@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from "next/link";
-import {ButtonPrimary} from "../styleComponent/button";
+import {ButtonRedPrimary} from "../styleComponent/button";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebookF} from "@fortawesome/free-brands-svg-icons";
 
@@ -77,7 +77,7 @@ const Footer = (props) => {
                         </Link>
                     </div>
                     <div className="text-right">
-                        <ButtonPrimary className="rounded-lg text-xs md:text-sm">+ Add your university</ButtonPrimary>
+                        <ButtonRedPrimary className="rounded-lg text-xs md:text-sm">+ Add your university</ButtonRedPrimary>
                     </div>
                 </div>
             </div>

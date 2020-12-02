@@ -44,7 +44,7 @@ const CountriesPage = (props) => {
 
         <div className="container mx-auto md:px-4 md:my-6 border-t border-gray-200 md:border-0">
             <div className="bg-white md:p-10 py-6 px-3">
-                <h3 className="text-2xl md:text-5xl font-normal text-custom-primary2 text-center mb-5 md:mb-10">Study Destinations</h3>
+                <h3 className="text-2xl md:text-3xl font-normal text-custom-primary_2 text-center mb-5 md:mb-10">Study Destinations</h3>
                 <div className="grid md:grid-cols-5 grid-cols-2 gap-x-3 md:gap-x-6 gap-y-4 md:gap-y-8">
 
                     <DestinationCard/>

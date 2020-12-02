@@ -73,9 +73,9 @@ const CountryPage = (props) => {
 
                     <div className="bg-white border border-gray-200 md:p-8 py-8 px-4 md:mb-6 mb-4">
                         <div className="flex justify-between">
-                            <div className="md:w-full w-2/3">
+                            <div className="md:w-full w-10/12">
                                 <h1 className="text-3xl font-medium text-black">
-                                    Republic of south Africa
+                                    South Africa
                                 </h1>
                                 {!isCurrentMobile && (
                                     <div className="md:flex items-center text-custom-primary text-lg my-7 space-x-20 font-normal hidden">
@@ -88,7 +88,7 @@ const CountryPage = (props) => {
                                     </div>
                                 )}
                             </div>
-                            <div className="w-1/3 md:w-auto">
+                            <div className="w-2/12 md:w-auto">
                                 <img src="../Flag_of_South_Africa.svg" alt="" className="object-fill md:h-20"/>
                             </div>
                         </div>
@@ -105,7 +105,7 @@ const CountryPage = (props) => {
                         <div className="flex items-center md:space-x-8 w-full justify-between md:justify-start">
                             <div className="md:text-lg text-sm font-normal"><span className="font-medium">Academy year</span> : Fev - Nov</div>
                             <div>
-                                <div className="bg-gray-200 text-black text-xs md:text-base md:px-4 px-2 py-2 flex items-center space-x-2 rounded-lg">
+                                <div className="bg-gray-200 hover:bg-red-200 hover:text-red-600 text-black text-xs md:text-base md:px-4 px-2 py-2 flex items-center space-x-2 rounded-lg">
                                     <FontAwesomeIcon icon={faPlayCircle} className="md:w-5 w-3" /> <span>Watch Video</span>
                                 </div>
                             </div>
@@ -293,10 +293,10 @@ const CountryPage = (props) => {
                         </div>
                         <div>
 
-                            <Accordion className={styles.accordion}>
+                            <Accordion className={styles.accordion} allowZeroExpanded>
                                 <AccordionItem>
                                     <AccordionItemHeading>
-                                        <AccordionItemButton className={styles.accodion_heading}>
+                                        <AccordionItemButton className={styles.accordion_heading}>
                                             <div className="text-lg">
                                                 Ingenieurie (15)
                                             </div>
@@ -319,7 +319,7 @@ const CountryPage = (props) => {
                                 </AccordionItem>
                                 <AccordionItem>
                                     <AccordionItemHeading>
-                                        <AccordionItemButton className={`${styles.accodion_heading} ${<AccordionItemState>{({ expanded }) => (expanded ? 'bg-custom-primary bg-opacity-50' : '')}</AccordionItemState>}`}>
+                                        <AccordionItemButton className={`${styles.accordion_heading} ${<AccordionItemState>{({ expanded }) => (expanded ? 'bg-custom-primary bg-opacity-50' : '')}</AccordionItemState>}`}>
                                             <div className={`text-lg`}>
                                                 Ingenieurie (15)
                                             </div>

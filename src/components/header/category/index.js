@@ -163,6 +163,48 @@ const CategoryMenu = (props) => {
 
                     </div>
                 </TabPanel>
+                <TabPanel className="opacity-0" selectedClassName="opacity-100 bg-white">
+                    <div className="md:px-10 col-count-1 col-w-sm w-full md:space-y-3 col-gap-sm md:pb-0">
+
+                        <Link href="/" >
+                            <a className="md:font-light font-medium hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
+                                Sub category 3
+                            </a>
+                        </Link>
+                        <Link href="/" >
+                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
+                                Sub category 3
+                            </a>
+                        </Link>
+                        <Link href="/" >
+                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
+                                Sub category 3
+                            </a>
+                        </Link>
+                        <Link href="/" >
+                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
+                                Sub category 3
+                            </a>
+                        </Link>
+                        <Link href="/" >
+                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
+                                Sub category 3
+                            </a>
+                        </Link>
+                        <Link href="/" >
+                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
+                                Sub category 3
+                            </a>
+                        </Link>
+                        <Link href="/" >
+                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
+                                Sub category 3
+                            </a>
+                        </Link>
+
+
+                    </div>
+                </TabPanel>
             </div>
         </Tabs>
 

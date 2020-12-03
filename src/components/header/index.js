@@ -127,7 +127,7 @@ const Header = () => {
                             <a><img src="../logo.png" alt="" className="md:h-10 h-8"/></a>
                         </Link>
                     </div>
-                    <div className={`menuMobile ${isOpen ? "open" : ""} md:fixed md:relative z-20 bg-custom-body md:bg-white left-0 right-0 top-0 md:h-auto md:w-4/5 h-screen`} ref={container}>
+                    <div className={`menuMobile ${isOpen ? "open" : ""} md:fixed md:relative z-20 bg-custom-menu md:bg-white left-0 right-0 top-0 md:h-auto md:w-4/5 h-screen`} ref={container}>
                         <div className="md:flex justify-between items-center md:space-x-20">
                             <div className="flex items-center">
                                 <div className={`${styles.tabMenu} ${openCategory ? styles.tabMenuOpen : ""}`} onClick={isOpenCategory}>

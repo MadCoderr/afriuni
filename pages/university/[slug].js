@@ -3,7 +3,7 @@ import Head from "next/dist/next-server/lib/head";
 import Link from "next/link";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
-    faBookOpen, faChevronDown, faChevronLeft,
+    faBookOpen, faCheck, faChevronDown, faChevronLeft,
     faChevronRight, faCircle, faGraduationCap, faMailBulk,
     faMapMarkerAlt, faMinus,
     faPlayCircle, faPlus, faShare, faThumbsUp
@@ -20,11 +20,32 @@ import {
     AccordionItemPanel,
     AccordionItemState
 } from "react-accessible-accordion";
-import {ButtonDefault, ButtonRedSecondary} from "../../src/components/styleComponent/button";
+import {Button, ButtonDefault, ButtonRedSecondary} from "../../src/components/styleComponent/button";
 import {faEnvelope} from "@fortawesome/free-regular-svg-icons";
+import { useRouter } from "next/router";
+import {useMediaQuery} from "react-responsive";
+import {faWhatsapp} from "@fortawesome/free-brands-svg-icons";
 
 
 const UniversityPage = (props) => {
+
+    const router = useRouter();
+    const [isPremium, setIsPremium] = React.useState(false);
+
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+    const [isCurrentMobile, setIsCurrentMobile] = React.useState(false);
+
+    React.useEffect(() => {
+        if(isMobile){
+            setIsCurrentMobile(true)
+        }else{
+            setIsCurrentMobile(false);
+        }
+    }, [isMobile]);
+
+    React.useEffect(() => {
+        if(router.query) setIsPremium(true);
+    }, []);
 
 
     return <div>
@@ -60,48 +81,101 @@ const UniversityPage = (props) => {
             </div>
         </div>
 
+        {(isPremium && !isCurrentMobile) && (
+            <div className="container mx-auto px-4">
+                <div className="relative">
+                    <img src="../bgUniv.jpg" alt="" className="object-cover h-500"/>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"/>
+                    <div className="absolute left-0 right-0 bottom-0 bg-transparent">
+                        <div className="flex px-10 py-10 space-x-10 items-center">
+                            <div>
+                                <div className="bg-white rounded-xl p-1">
+                                    <img src="../logoUniv.jpg" alt="" className="object-contain h-full w-32"/>
+                                </div>
+                            </div>
+                            <div>
+                                <h1 className="text-4xl font-medium text-white">
+                                    American University in Cairo
+                                </h1>
+                                <div className="flex space-x-3 my-5 md:mb-4 md: mt-2 text-white text-sm md:text-lg">
+                                    <FontAwesomeIcon icon={faMapMarkerAlt} className="w-4" /> <span>AUC Avenue, PO Box 74 New Cairo, Cairo</span>
+                                </div>
+
+                                <div className="flex items-center md:space-x-8 w-full justify-between md:justify-start">
+                                    <div>
+                                        <div className="bg-gray-200 hover:bg-red-200 hover:text-red-600 text-black text-xs md:text-base md:px-4 px-2 py-2 flex items-center space-x-2 rounded-lg cursor-pointer">
+                                            <FontAwesomeIcon icon={faThumbsUp} className="md:w-5 w-3" /> <span>Like</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="bg-gray-200 hover:bg-red-200 hover:text-red-600 text-black text-xs md:text-base md:px-4 px-2 py-2 flex items-center space-x-2 rounded-lg cursor-pointer">
+                                            <FontAwesomeIcon icon={faShare} className="md:w-5 w-3" /> <span>Share</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="bg-gray-200 hover:bg-red-200 hover:text-red-600 text-black text-xs md:text-base md:px-4 px-2 py-2 flex items-center space-x-2 rounded-lg cursor-pointer">
+                                            <FontAwesomeIcon icon={faPlayCircle} className="md:w-5 w-3" /> <span>Watch Video</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )}
+
         <div className="container mx-auto md:px-4 md:my-10">
             <div className="grid md:grid-cols-3 grid-cols-1 md:gap-6 gap-0">
 
                 <div className="col-span-2">
 
-                    <div className="bg-white border border-gray-200 md:p-8 py-8 px-4 md:mb-6 mb-4">
+                    {((isPremium && isCurrentMobile) || !isPremium) && (
+                        <div className="bg-white border border-gray-200 md:p-8 py-8 px-4 md:mb-6 mb-4">
 
-                        <div className="flex justify-between">
-                            <div className="">
-                                <h1 className="text-3xl font-medium text-black">
-                                    American University in Cairo
-                                </h1>
-                                <div className="flex space-x-3 my-5 md:my-3 text-gray-400 text-sm md:text-base">
-                                   <FontAwesomeIcon icon={faMapMarkerAlt} className="w-4" /> <span>AUC Avenue, PO Box 74 New Cairo, Cairo</span>
+                            <div className="flex justify-between">
+                                <div className="">
+                                    <h1 className="text-3xl font-medium text-black">
+                                        American University in Cairo
+                                    </h1>
+                                    <div className="flex space-x-3 my-5 md:my-3 text-gray-400 text-sm md:text-base">
+                                        <FontAwesomeIcon icon={faMapMarkerAlt} className="w-4" /> <span>AUC Avenue, PO Box 74 New Cairo, Cairo</span>
+                                    </div>
+                                </div>
+                                <div className="hidden md:block">
+                                    <div className="border border-gray-200 rounded-xl p-1">
+                                        <img src="../logoUniv.jpg" alt="" className="object-contain"/>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="hidden md:block">
-                                <div className="border border-gray-200 rounded-xl p-1">
-                                    <img src="../logoUniv.jpg" alt="" className="object-contain"/>
+
+                            <div className="flex items-center md:space-x-8 w-full justify-between md:justify-start">
+                                <div>
+                                    <div className="bg-gray-200 hover:bg-red-200 hover:text-red-600 text-black text-xs md:text-base md:px-4 px-4 py-2 flex items-center space-x-2 rounded-lg cursor-pointer">
+                                        <FontAwesomeIcon icon={faThumbsUp} className="md:w-5 w-3" /> <span>Like</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="bg-gray-200 hover:bg-red-200 hover:text-red-600 text-black text-xs md:text-base md:px-4 px-4 py-2 flex items-center space-x-2 rounded-lg cursor-pointer">
+                                        <FontAwesomeIcon icon={faShare} className="md:w-5 w-3" /> <span>Share</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="bg-gray-200 hover:bg-red-200 hover:text-red-600 text-black text-xs md:text-base md:px-4 px-3 py-2 flex items-center space-x-2 rounded-lg cursor-pointer">
+                                        <FontAwesomeIcon icon={faPlayCircle} className="md:w-5 w-3" /> <span>Watch Video</span>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
+                    )}
 
-                        <div className="flex items-center md:space-x-8 w-full justify-between md:justify-start">
-                            <div>
-                                <div className="bg-gray-200 hover:bg-red-200 hover:text-red-600 text-black text-xs md:text-base md:px-4 px-2 py-2 flex items-center space-x-2 rounded-lg cursor-pointer">
-                                    <FontAwesomeIcon icon={faThumbsUp} className="md:w-5 w-3" /> <span>Like</span>
-                                </div>
-                            </div>
-                            <div>
-                                <div className="bg-gray-200 hover:bg-red-200 hover:text-red-600 text-black text-xs md:text-base md:px-4 px-2 py-2 flex items-center space-x-2 rounded-lg cursor-pointer">
-                                    <FontAwesomeIcon icon={faShare} className="md:w-5 w-3" /> <span>Share</span>
-                                </div>
-                            </div>
-                            <div>
-                                <div className="bg-gray-200 hover:bg-red-200 hover:text-red-600 text-black text-xs md:text-base md:px-4 px-2 py-2 flex items-center space-x-2 rounded-lg cursor-pointer">
-                                    <FontAwesomeIcon icon={faPlayCircle} className="md:w-5 w-3" /> <span>Watch Video</span>
-                                </div>
-                            </div>
+                    {(isPremium && isCurrentMobile) && (
+                        <div className="mb-6 -mt-4">
+                            <img src="../bgUniv.jpg" alt="" className="object-cover h-64"/>
                         </div>
-
-                    </div>
+                    )}
 
                     <div className="grid grid-cols-4 gap-1 md:gap-2">
                         <div className="px-2 md:px-4 md:py-3 py-2 rounded-t-xl border-l border-r border-t border-gray-200 bg-white flex items-center justify-center text-center cursor-pointer">
@@ -130,7 +204,7 @@ const UniversityPage = (props) => {
 
                             </div>
                             <div className="col-span-1 bg-white p-4 md:p-0 border border-gray-200 md:border-0">
-                                <div className="pl-6 space-y-2">
+                                <div className="md:pl-6 pl-2 space-y-2">
                                     <div className="flex items-start space-x-1 text-base">
                                         <span className="w-1/12 pt-2"><FontAwesomeIcon icon={faCircle} className="w-2 text-gray-400" /></span> <span className="w-11/12">Private Institution</span>
                                     </div>
@@ -291,8 +365,8 @@ const UniversityPage = (props) => {
                             </table>
                         </div>
                         <div className="flex justify-center my-4">
-                            <ButtonDefault className="flex items-center rounded-xl space-x-2">
-                                <FontAwesomeIcon icon={faChevronDown} className="w-5" /><span>Show More</span></ButtonDefault>
+                            <ButtonDefault className="flex items-center rounded-xl space-x-2 text-sm">
+                                <FontAwesomeIcon icon={faChevronDown} className="w-3" /><span>Show More</span></ButtonDefault>
                         </div>
                     </div>
 
@@ -352,8 +426,8 @@ const UniversityPage = (props) => {
                                 <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
                                         <AccordionItem>
                                             <AccordionItemHeading>
-                                                <AccordionItemButton className={styles.accordion_heading+" bg-white"}>
-                                                    <div className="text-xl font-normal text-custom-primary">
+                                                <AccordionItemButton className={styles.accordion_heading_2}>
+                                                    <div className={`text-xl font-normal`}>
                                                         Faculty of Information Technology and
                                                         Computing
                                                     </div>
@@ -364,9 +438,9 @@ const UniversityPage = (props) => {
                                                     </div>
                                                 </AccordionItemButton>
                                             </AccordionItemHeading>
-                                            <AccordionItemPanel className="bg-white px-6 pb-6">
+                                            <AccordionItemPanel className="bg-white px-6 pb-6 w-full">
                                                 <Link href={"/"}>
-                                                    <a className="text-left py-2 px-4 text-black font-normal inline-block">
+                                                    <a className="text-left py-2 px-0 text-black font-normal inline-block w-full">
                                                         Institute of Public Health
                                                     </a>
                                                 </Link>
@@ -377,9 +451,9 @@ const UniversityPage = (props) => {
                                                                 <div className="text-base text-black font-normal">
                                                                     Faculty of Information
                                                                 </div>
-                                                                <div className="w-auto flex justify-center text-red-400">
+                                                                <div className="w-auto flex justify-center text-red-400 border border-red-400 px-1 py-0">
                                                                     <AccordionItemState>
-                                                                        {({ expanded }) => (expanded ? <FontAwesomeIcon icon={faMinus} className="w-4 text-base" /> : <FontAwesomeIcon icon={faPlus} className="w-4 text-base" />)}
+                                                                        {({ expanded }) => (expanded ? <FontAwesomeIcon icon={faMinus} className="w-2 text-base" /> : <FontAwesomeIcon icon={faPlus} className="w-2 text-base" />)}
                                                                     </AccordionItemState>
                                                                 </div>
                                                             </AccordionItemButton>
@@ -397,8 +471,8 @@ const UniversityPage = (props) => {
                                         </AccordionItem>
                                         <AccordionItem>
                                             <AccordionItemHeading>
-                                                <AccordionItemButton className={styles.accordion_heading+" bg-white"}>
-                                                    <div className="text-xl font-normal text-custom-primary">
+                                                <AccordionItemButton className={styles.accordion_heading_2}>
+                                                    <div className="text-xl font-normal text-black">
                                                         Faculty of Information Technology and
                                                         Computing
                                                     </div>
@@ -466,6 +540,29 @@ const UniversityPage = (props) => {
                 </div>
 
                 <div className="col-span-1">
+                    {isPremium && (
+                        <div className="bg-white border border-gray-200 mb-6 relative md:p-6 p-4">
+
+                            <div className="flex items-start space-x-4">
+                                <div>
+                                    <div className="bg-transparent">
+                                        <img src="../whatsapp.png" alt="" className="object-contain h-10"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="text-2xl font-medium my-1" style={{color : "#085F56"}}>
+                                        Chat on WhatsApp
+                                    </div>
+                                    <div className="text-gray-800 mb-4">
+                                        Be directly connected to this University via
+                                        WhatsApp
+                                    </div>
+                                    <Button className="text-white rounded-lg" style={{ backgroundColor : "#085F56" }}>Chat now</Button>
+                                </div>
+                            </div>
+
+                        </div>
+                    )}
 
                     <div className="bg-white border border-gray-200 mb-6 relative">
                         <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
@@ -489,21 +586,44 @@ const UniversityPage = (props) => {
                         </div>
                     </div>
 
-                    <div className="bg-white border border-gray-200 mb-6 relative">
-                        <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
-                            <span> Other Universities in Egypt</span>
-                        </div>
-                        <div className="md:p-6 p-4">
-                            <div className="pb-5">
-                                <div className="flex justify-between space-x-4">
-                                    <img src="../univAshesi.jpeg" alt="" className="object-cover w-28 rounded-md"/>
-                                    <div>
-                                        <Link href="/university/pretoria">
-                                            <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-13 leading-7">
+                    {!isPremium && (
+                        <div className="bg-white border border-gray-200 mb-6 relative">
+                            <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
+                                <span> Other Universities in Egypt</span>
+                            </div>
+                            <div className="md:p-6 p-4">
+                                <div className="pb-5">
+                                    <div className="flex justify-between space-x-4">
+                                        <img src="../univAshesi.jpeg" alt="" className="object-cover w-28 rounded-md"/>
+                                        <div>
+                                            <Link href="/university/pretoria">
+                                                <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-13 leading-7">
+                                                    Institut Universitaire de la Cote
+                                                </a>
+                                            </Link>
+                                            <div className="flex items-center justify-between mt-2 text-gray-600 text-sm md:text-base">
+                                                <div className="flex items-center space-x-2">
+                                                    <FontAwesomeIcon icon={faMapMarkerAlt} className="w-3" /> <span>Douala</span>
+                                                </div>
+                                                <div>30 Courses</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="flex justify-between items-center md:mt-3 mt-2 text-gray-600 text-sm md:text-base">
+                                        <div className="w-28 text-center">10 photos</div>
+                                        <div className="text-gray-400 italic">Featured</div>
+                                    </div>
+                                </div>
+                                <div className="flex items-start border-t border-gray-400 py-5">
+                                    <div className="w-1/12 pt-2 text-gray-400"><FontAwesomeIcon icon={faCircle} className="w-3" /></div>
+                                    <div className="w-11/12">
+                                        <Link href="/">
+                                            <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
                                                 Institut Universitaire de la Cote
                                             </a>
                                         </Link>
                                         <div className="flex items-center justify-between mt-2 text-gray-600 text-sm md:text-base">
+                                            <div>Public</div>
                                             <div className="flex items-center space-x-2">
                                                 <FontAwesomeIcon icon={faMapMarkerAlt} className="w-3" /> <span>Douala</span>
                                             </div>
@@ -511,86 +631,100 @@ const UniversityPage = (props) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex justify-between items-center md:mt-3 mt-2 text-gray-600 text-sm md:text-base">
-                                    <div className="w-28 text-center">10 photos</div>
-                                    <div className="text-gray-400 italic">Featured</div>
-                                </div>
-                            </div>
-                            <div className="flex items-start border-t border-gray-400 py-5">
-                                <div className="w-1/12 pt-2 text-gray-400"><FontAwesomeIcon icon={faCircle} className="w-3" /></div>
-                                <div className="w-11/12">
-                                    <Link href="/">
-                                        <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
-                                            Institut Universitaire de la Cote
-                                        </a>
-                                    </Link>
-                                    <div className="flex items-center justify-between mt-2 text-gray-600 text-sm md:text-base">
-                                        <div>Public</div>
-                                        <div className="flex items-center space-x-2">
-                                            <FontAwesomeIcon icon={faMapMarkerAlt} className="w-3" /> <span>Douala</span>
+                                <div className="flex items-start border-t border-gray-400 py-5">
+                                    <div className="w-1/12 pt-2 text-gray-400"><FontAwesomeIcon icon={faCircle} className="w-3" /></div>
+                                    <div className="w-11/12">
+                                        <Link href="/">
+                                            <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
+                                                Institut Universitaire de la Cote
+                                            </a>
+                                        </Link>
+                                        <div className="flex items-center justify-between mt-2 text-gray-600 text-sm md:text-base">
+                                            <div>Public</div>
+                                            <div className="flex items-center space-x-2">
+                                                <FontAwesomeIcon icon={faMapMarkerAlt} className="w-3" /> <span>Douala</span>
+                                            </div>
+                                            <div>30 Courses</div>
                                         </div>
-                                        <div>30 Courses</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="flex items-start border-t border-gray-400 py-5">
-                                <div className="w-1/12 pt-2 text-gray-400"><FontAwesomeIcon icon={faCircle} className="w-3" /></div>
-                                <div className="w-11/12">
-                                    <Link href="/">
-                                        <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
-                                            Institut Universitaire de la Cote
-                                        </a>
-                                    </Link>
-                                    <div className="flex items-center justify-between mt-2 text-gray-600 text-sm md:text-base">
-                                        <div>Public</div>
-                                        <div className="flex items-center space-x-2">
-                                            <FontAwesomeIcon icon={faMapMarkerAlt} className="w-3" /> <span>Douala</span>
+                                <div className="flex items-start border-t border-gray-400 py-5">
+                                    <div className="w-1/12 pt-2 text-gray-400"><FontAwesomeIcon icon={faCircle} className="w-3" /></div>
+                                    <div className="w-11/12">
+                                        <Link href="/">
+                                            <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
+                                                Institut Universitaire de la Cote
+                                            </a>
+                                        </Link>
+                                        <div className="flex items-center justify-between mt-2 text-gray-600 text-sm md:text-base">
+                                            <div>Public</div>
+                                            <div className="flex items-center space-x-2">
+                                                <FontAwesomeIcon icon={faMapMarkerAlt} className="w-3" /> <span>Douala</span>
+                                            </div>
+                                            <div>30 Courses</div>
                                         </div>
-                                        <div>30 Courses</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="flex items-start border-t border-gray-400 py-5">
-                                <div className="w-1/12 pt-2 text-gray-400"><FontAwesomeIcon icon={faCircle} className="w-3" /></div>
-                                <div className="w-11/12">
-                                    <Link href="/">
-                                        <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
-                                            Institut Universitaire de la Cote
-                                        </a>
-                                    </Link>
-                                    <div className="flex items-center justify-between mt-2 text-gray-600 text-sm md:text-base">
-                                        <div>Public</div>
-                                        <div className="flex items-center space-x-2">
-                                            <FontAwesomeIcon icon={faMapMarkerAlt} className="w-3" /> <span>Douala</span>
+                                <div className="flex items-start border-t border-gray-400 py-5">
+                                    <div className="w-1/12 pt-2 text-gray-400"><FontAwesomeIcon icon={faCircle} className="w-3" /></div>
+                                    <div className="w-11/12">
+                                        <Link href="/">
+                                            <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
+                                                Institut Universitaire de la Cote
+                                            </a>
+                                        </Link>
+                                        <div className="flex items-center justify-between mt-2 text-gray-600 text-sm md:text-base">
+                                            <div>Public</div>
+                                            <div className="flex items-center space-x-2">
+                                                <FontAwesomeIcon icon={faMapMarkerAlt} className="w-3" /> <span>Douala</span>
+                                            </div>
+                                            <div>30 Courses</div>
                                         </div>
-                                        <div>30 Courses</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="flex items-start border-t border-gray-400 py-5">
-                                <div className="w-1/12 pt-2 text-gray-400"><FontAwesomeIcon icon={faCircle} className="w-3" /></div>
-                                <div className="w-11/12">
-                                    <Link href="/">
-                                        <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
-                                            Institut Universitaire de la Cote
-                                        </a>
-                                    </Link>
-                                    <div className="flex items-center justify-between mt-2 text-gray-600 text-sm md:text-base">
-                                        <div>Public</div>
-                                        <div className="flex items-center space-x-2">
-                                            <FontAwesomeIcon icon={faMapMarkerAlt} className="w-3" /> <span>Douala</span>
-                                        </div>
-                                        <div>30 Courses</div>
-                                    </div>
+                                <div className="flex justify-center mt-4">
+                                    <ButtonDefault className="flex items-center rounded-xl space-x-2 text-sm">
+                                        <FontAwesomeIcon icon={faChevronDown} className="w-4" /><span>See More</span></ButtonDefault>
                                 </div>
-                            </div>
-                            <div className="flex justify-center mt-4">
-                                <ButtonDefault className="flex items-center rounded-xl space-x-2">
-                                    <FontAwesomeIcon icon={faChevronDown} className="w-5" /><span>See More</span></ButtonDefault>
                             </div>
                         </div>
-                    </div>
+                    )}
 
+
+
+                    <div className="bg-white border border-gray-200 mb-6 relative">
+                        <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
+                            <span> Why Study at this University</span>
+                        </div>
+                        <div className="md:p-6 p-4">
+
+                            <div className="mb-5">
+                                <div className="flex space-x-3"><FontAwesomeIcon icon={faCheck} className="w-5" /> <span className="text-xl font-normal">Top Notch Professors</span> </div>
+                                <div className="mt-2 text-base">
+                                    The Professors at the American University in Cairo
+                                    are professionally active in their respective fields
+                                    as leaders and senior executives.
+                                </div>
+                            </div>
+                            <div className="mb-5">
+                                <div className="flex space-x-3"><FontAwesomeIcon icon={faCheck} className="w-5" /> <span className="text-xl font-normal">Top Notch Professors</span> </div>
+                                <div className="mt-2 text-base">
+                                    The Professors at the American University in Cairo
+                                    are professionally active in their respective fields
+                                    as leaders and senior executives.
+                                </div>
+                            </div>
+                            <div className="">
+                                <div className="flex space-x-3"><FontAwesomeIcon icon={faCheck} className="w-5" /> <span className="text-xl font-normal">Top Notch Professors</span> </div>
+                                <div className="mt-2 text-base">
+                                    The Professors at the American University in Cairo
+                                    are professionally active in their respective fields
+                                    as leaders and senior executives.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                     <div className="bg-white border border-gray-200 mb-6 relative">
                         <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
                             <span> Similar Universities</span>

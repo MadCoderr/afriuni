@@ -40,7 +40,9 @@ module.exports = {
                     primary_2: "#05293C",
                     primary_3 : "#017AA1",
                     secondary: "#FB5C3B",
-                    body: "#F0F4F8",
+                    body: "#333333",
+                    menu: "#F0F4F8",
+
                 }
             },
             minWidth: {

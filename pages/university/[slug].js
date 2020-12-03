@@ -44,7 +44,7 @@ const UniversityPage = (props) => {
     }, [isMobile]);
 
     React.useEffect(() => {
-        if(router.query) setIsPremium(true);
+        if(Object.entries(router.query).length !== 0) setIsPremium(true);
     }, []);
 
 
@@ -572,14 +572,14 @@ const UniversityPage = (props) => {
                             <div>
                                 <div className="text-xl font-normal text-black">Admissions Office</div>
                                 <div className="text-gray-400 py-3"> Responsible for Admission & Application Enquiries</div>
-                                <ButtonRedSecondary className="flex items-center space-x-2 rounded-xl">
+                                <ButtonRedSecondary className="flex items-center space-x-2 rounded-lg">
                                     <FontAwesomeIcon icon={faEnvelope} className="w-6" /> <span>Send a Message</span>
                                 </ButtonRedSecondary>
                             </div>
                             <div>
                                 <div className="text-xl font-normal text-black">Admissions Office</div>
                                 <div className="text-gray-400 py-3"> Responsible for Admission & Application Enquiries</div>
-                                <ButtonRedSecondary className="flex items-center space-x-2 rounded-xl">
+                                <ButtonRedSecondary className="flex items-center space-x-2 rounded-lg">
                                     <FontAwesomeIcon icon={faEnvelope} className="w-6" /> <span>Send a Message</span>
                                 </ButtonRedSecondary>
                             </div>

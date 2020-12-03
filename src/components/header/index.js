@@ -47,14 +47,16 @@ const Header = () => {
     }, [isOpen, isMobile]);
 
     const toggleNav = () => {
-        if(isOpen === false){
+        setIsOpen(!isOpen);
+    };
+
+    React.useEffect(() => {
+        if(!isOpen){
             setOpenCategory(true);
             setOpenCountry(false);
             setOpenOther(false);
         }
-        setIsOpen(!isOpen);
-
-    };
+    }, [isOpen]);
 
     React.useEffect(() => {
 

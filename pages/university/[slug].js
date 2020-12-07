@@ -3,14 +3,13 @@ import Head from "next/dist/next-server/lib/head";
 import Link from "next/link";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
-    faBookOpen, faCheck, faChevronDown, faChevronLeft,
-    faChevronRight, faCircle, faGraduationCap, faMailBulk,
+    faCheck, faChevronDown,
+    faChevronRight, faCircle,
     faMapMarkerAlt, faMinus,
     faPlayCircle, faPlus, faShare, faThumbsUp
 } from "@fortawesome/free-solid-svg-icons";
 import Caroussel from "../../src/components/general/carousel";
 import Dropdown, {ItemDropdown} from "../../src/components/general/dropdown";
-import CategoryMenu from "../../src/components/header/category";
 import styles from "../../styles/globals.module.scss";
 import {
     Accordion,
@@ -24,7 +23,9 @@ import {Button, ButtonDefault, ButtonRedSecondary} from "../../src/components/st
 import {faEnvelope} from "@fortawesome/free-regular-svg-icons";
 import { useRouter } from "next/router";
 import {useMediaQuery} from "react-responsive";
-import {faWhatsapp} from "@fortawesome/free-brands-svg-icons";
+import DropdownMulti from "../../src/components/general/dropdownMulti";
+import ShowMoreText from 'react-show-more-text';
+import OfficialSection from "../../src/components/sections/university/official";
 
 
 const UniversityPage = (props) => {
@@ -34,6 +35,7 @@ const UniversityPage = (props) => {
 
     const isMobile = useMediaQuery({ maxWidth: 767 });
     const [isCurrentMobile, setIsCurrentMobile] = React.useState(false);
+    const [listData, setListData] = React.useState([]);
 
     React.useEffect(() => {
         if(isMobile){
@@ -44,7 +46,84 @@ const UniversityPage = (props) => {
     }, [isMobile]);
 
     React.useEffect(() => {
-        if(Object.entries(router.query).length !== 0) setIsPremium(true);
+        if(router.query?.q) setIsPremium(true);
+        const list = [
+            {
+                name : 'Ingenierie',
+                subMenu : [
+                    {
+                        name: 'subcategory'
+                    },
+                    {
+                        name: 'subcategory'
+                    },
+                    {
+                        name: 'subcategory'
+                    },
+                    {
+                        name: 'subcategory'
+                    },
+                    {
+                        name: 'subcategory'
+                    },
+                    {
+                        name: 'subcategory'
+                    }
+                ]
+            },
+            {
+                name : 'Information Technology',
+                subMenu : [
+                    {
+                        name: 'subcategory 2'
+                    },
+                    {
+                        name: 'subcategory 2'
+                    },
+                    {
+                        name: 'subcategory 2'
+                    },
+                    {
+                        name: 'subcategory 2'
+                    },
+                    {
+                        name: 'subcategory 2'
+                    },
+                    {
+                        name: 'subcategory 2'
+                    }
+                ]
+            },
+            {
+                name : 'Science',
+                subMenu : [
+                    {
+                        name: 'subcategory 3'
+                    },
+                    {
+                        name: 'subcategory 3'
+                    },
+                    {
+                        name: 'subcategory 3'
+                    },
+                    {
+                        name: 'subcategory 3'
+                    },
+                    {
+                        name: 'subcategory 3'
+                    },
+                    {
+                        name: 'subcategory 3'
+                    }
+                ]
+            }
+        ];
+
+        // const content = "The American University of Cairo is Located in Cairo, Cairo Governorate. Cairo is the political and economic capital of Egypt. Cairo has a population of over 10 million inhabitants. The population of Cairo is predominantly muslim and Cairo is the birth place of the Arab league. Cairo accounts for 10% of Egypt’s population and 22% of its economy. Cairo’s economy is largely based on government functions, trade, tourism";
+        //
+        // console.log(content.length);
+
+        setListData(list);
     }, []);
 
 
@@ -197,9 +276,25 @@ const UniversityPage = (props) => {
                             <div className="col-span-2 bg-white md:bg-transparent p-6 md:p-0 border border-gray-200 md:border-0 mb-4 md:mb-0">
 
                                 <div className="text-justify md:pr-6">
-                                    Overview of American University in Cairo. The American University in Cairo (AUC) is an Independent, English Language private research University in Cairo, Egypt. The University was founded in 1414 by Americans devated to education and service in the Middle East.
-                                    <br/><br/>
-                                    The founding president, Charles Watson, sought to create an english language University based on high Standard of conduct and University did based on high Standard of conduct and University based on high Standard of University based on high Standard of conduct and...
+                                    <ShowMoreText
+                                        /* Default options */
+                                        lines={10}
+                                        more='Read more'
+                                        less='Show less'
+                                        className='text-justify'
+                                        anchorClass='text-custom-primary font-normal'
+                                        onClick={""}
+                                        expanded={false}
+                                    >
+                                        <p>
+                                            Overview of American University in Cairo. The American University in Cairo (AUC) is an Independent, English Language private research University in Cairo, Egypt. The University was founded in 1414 by Americans devated to education and service in the Middle East.
+                                        </p>
+
+                                        <p>
+                                            The founding president, Charles Watson, sought to create an english language University based on high Standard of conduct and University did based on high Standard of conduct and University based on high Standard of University based on high Standard of conduct
+                                        </p>
+                                    </ShowMoreText>
+
                                 </div>
 
                             </div>
@@ -235,27 +330,24 @@ const UniversityPage = (props) => {
 
                     <div className="bg-white border border-gray-200 mb-6 relative">
                         <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
-                           <FontAwesomeIcon icon={faBookOpen} className="w-6" /> <span>Study Programmes (75)</span>
+                           {/*<FontAwesomeIcon icon={faBookOpen} className="w-6" /> */}
+                           <span>Study Programmes (75)</span>
                         </div>
                         <div className="md:p-6 p-4">
                             <div className="flex items-center space-x-6">
                                 <div className="md:w-1/3 w-1/2">
-                                    <Dropdown title={"Courses Catégories"}
+                                    <DropdownMulti title={"Courses Catégories"}
                                               className="bg-gray-200 flex md:pl-4 pl-3 justify-between items-center text-black font-normal truncate rounded-lg md:text-base text-xs"
                                               maxHeight="100%"
-                                              classChevron="md:p-4 p-3 bg-custom-primary text-white"
-                                              classDropdown="mt-1 rounded-md shadow-lg md:w-700 w-64"
-                                              position="left">
-                                        <div className="p-6">
-                                            <CategoryMenu/>
-                                        </div>
-                                    </Dropdown>
+                                              classChevron="ml-4 md:p-4 px-2 py-4 bg-custom-primary text-white"
+                                              classDropdown="mt-1 rounded-md shadow-lg md:w-700 w-300"
+                                              position="center" data={listData}/>
                                 </div>
                                 <div className="w-1/2 md:w-1/3">
                                     <Dropdown title={"Study Level"}
                                               className="bg-gray-200 md:pl-4 pl-3 flex justify-between items-center font-normal text-black truncate rounded-lg md:text-base text-xs"
                                               maxHeight="250px"
-                                              classChevron="md:p-4 p-3 bg-custom-primary text-white"
+                                              classChevron="ml-4 md:p-4 px-2 py-4 bg-custom-primary text-white"
                                               classDropdown="mt-1 rounded-md shadow-lg"
                                               position="center">
                                         <ItemDropdown value={"Country"} classInactive="font-medium text-custom-primary">All Study Level</ItemDropdown>
@@ -365,7 +457,7 @@ const UniversityPage = (props) => {
                             </table>
                         </div>
                         <div className="flex justify-center my-4">
-                            <ButtonDefault className="flex items-center rounded-xl space-x-2 text-sm">
+                            <ButtonDefault className="flex items-center rounded-lg space-x-2 text-sm">
                                 <FontAwesomeIcon icon={faChevronDown} className="w-3" /><span>Show More</span></ButtonDefault>
                         </div>
                     </div>
@@ -378,39 +470,86 @@ const UniversityPage = (props) => {
 
                             <div className="text-black font-normal text-lg mb-3">Key infos :</div>
                             <div className=" md:pl-10 mb-6">
-                                <ul>
-                                    <li>The Application fee for egyptians is 500 EGP</li>
-                                    <li>The tution fees for undergraduates usually far between 60,000 to 10,0000 EGP.</li>
-                                    <li>The main application period is between Feb - May</li>
-                                    <li>Scholarship are available for very smart student</li>
-                                </ul>
+                                <ShowMoreText
+                                    /* Default options */
+                                    lines={5}
+                                    more='Read more'
+                                    less='Show less'
+                                    className='text-justify'
+                                    anchorClass='text-custom-primary font-normal'
+                                    onClick={""}
+                                    expanded={false}
+                                >
+
+                                    <ul>
+                                        <li>The Application fee for egyptians is 500 EGP</li>
+                                        <li>The tution fees for undergraduates usually far between 60,000 to 10,0000 EGP.</li>
+                                        <li>The main application period is between Feb - May</li>
+                                        <li>Scholarship are available for very smart student</li>
+                                    </ul>
+                                </ShowMoreText>
                             </div>
                             <div className="text-black font-normal text-lg mb-3">Admission Requirements:</div>
                             <div className=" md:pl-10 mb-6">
-                                <ul>
-                                    <li>The Application fee for egyptians is 500 EGP</li>
-                                    <li>The tution fees for undergraduates usually far between 60,000 to 10,0000 EGP.</li>
-                                    <li>The main application period is between Feb - May</li>
-                                    <li>Scholarship are available for very smart student</li>
-                                </ul>
+                                <ShowMoreText
+                                    /* Default options */
+                                    lines={5}
+                                    more='Read more'
+                                    less='Show less'
+                                    className='text-justify'
+                                    anchorClass='text-custom-primary font-normal'
+                                    onClick={""}
+                                    expanded={false}
+                                >
+
+                                    <ul>
+                                        <li>The Application fee for egyptians is 500 EGP</li>
+                                        <li>The tution fees for undergraduates usually far between 60,000 to 10,0000 EGP.</li>
+                                        <li>The main application period is between Feb - May</li>
+                                        <li>Scholarship are available for very smart student</li>
+                                    </ul>
+                                </ShowMoreText>
                             </div>
                             <div className="text-black font-normal text-lg mb-3">How to Apply:</div>
                             <div className=" md:pl-10 mb-6">
-                                <ul>
-                                    <li>The Application fee for egyptians is 500 EGP</li>
-                                    <li>The tution fees for undergraduates usually far between 60,000 to 10,0000 EGP.</li>
-                                    <li>The main application period is between Feb - May</li>
-                                    <li>Scholarship are available for very smart student</li>
-                                </ul>
+                                <ShowMoreText
+                                    /* Default options */
+                                    lines={5}
+                                    more='Read more'
+                                    less='Show less'
+                                    className='text-justify'
+                                    anchorClass='text-custom-primary font-normal'
+                                    onClick={""}
+                                    expanded={true}
+                                >
+
+                                    <ul>
+                                        <li>The Application fee for egyptians is 500 EGP</li>
+                                        <li>The tution fees for undergraduates usually far between 60,000 to 10,0000 EGP.</li>
+                                        <li>The main application period is between Feb - May</li>
+                                        <li>Scholarship are available for very smart student</li>
+                                    </ul>
+                                </ShowMoreText>
                             </div>
                             <div className="text-black font-normal text-lg mb-3">Foreign Students:</div>
                             <div className=" md:pl-10 mb-6">
-                                <ul>
-                                    <li>The Application fee for egyptians is 500 EGP</li>
-                                    <li>The tution fees for undergraduates usually far between 60,000 to 10,0000 EGP.</li>
-                                    <li>The main application period is between Feb - May</li>
-                                    <li>Scholarship are available for very smart student</li>
-                                </ul>
+                                <ShowMoreText
+                                    /* Default options */
+                                    lines={5}
+                                    more='Read more'
+                                    less='Show less'
+                                    className='text-justify'
+                                    anchorClass='text-custom-primary font-normal'
+                                    expanded={true}
+                                >
+
+                                    <ul>
+                                        <li>The Application fee for egyptians is 500 EGP</li>
+                                        <li>The tution fees for undergraduates usually far between 60,000 to 10,0000 EGP.</li>
+                                        <li>The main application period is between Feb - May</li>
+                                        <li>Scholarship are available for very smart student</li>
+                                    </ul>
+                                </ShowMoreText>
                             </div>
 
                         </div>
@@ -521,21 +660,62 @@ const UniversityPage = (props) => {
 
                     <div className="bg-white border border-gray-200 mb-6 relative">
                         <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
-                            <FontAwesomeIcon icon={faGraduationCap} className="w-6" /> <span> Admission</span>
+                            {/*<FontAwesomeIcon icon={faGraduationCap} className="w-6" /> */}
+                            <span> Scholarships</span>
                         </div>
                         <div className="p-6">
-                            The American University of Cairo is Located in Cairo, Cairo Governorate. Cairo is the political and economic capital of Egypt. Cairo has a population of over 10 million inhabitants. The population of Cairo is predominantly muslim and Cairo is the birth place of the Arab league. Cairo accounts for 10% of Egypt’s population and 22% of its economy. Cairo’s economy is largely based on government functions, trade, tourism....More
+                            <ShowMoreText
+                                /* Default options */
+                                lines={8}
+                                more='Read more'
+                                less='Show less'
+                                className='text-justify'
+                                anchorClass='text-custom-primary font-normal'
+                                onClick={""}
+                                expanded={false}
+                            >
+                                <p>
+                                    The American University of Cairo is Located in Cairo, Cairo Governorate. Cairo is the political and economic capital of Egypt. Cairo has a population of over 10 million inhabitants. The population of Cairo is predominantly muslim and Cairo is the birth place of the Arab league. Cairo accounts for 10% of Egypt’s population and 22% of its economy. Cairo’s economy is largely based on government functions, trade, tourism
+                                </p>
+                            </ShowMoreText>
+
                         </div>
                     </div>
 
                     <div className="bg-white border border-gray-200 mb-6 relative">
                         <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
-                            <FontAwesomeIcon icon={faMapMarkerAlt} className="w-4" /> <span>Location</span>
+                            {/*<FontAwesomeIcon icon={faMapMarkerAlt} className="w-4" />*/}
+                            <span>Location</span>
                         </div>
                         <div className="p-6">
-                            The American University of Cairo is Located in Cairo, Cairo Governorate. Cairo is the political and economic capital of Egypt. Cairo has a population of over 10 million inhabitants. The population of Cairo is predominantly muslim and Cairo is the birth place of the Arab league. Cairo accounts for 10% of Egypt’s population and 22% of its economy. Cairo’s economy is largely based on government functions, trade, tourism....More
+                            <ShowMoreText
+                                /* Default options */
+                                lines={8}
+                                more='Read more'
+                                less='Show less'
+                                className='text-justify'
+                                anchorClass='text-custom-primary font-normal'
+                                onClick={""}
+                                expanded={false}
+                            >
+                                <p>
+                                    The American University of Cairo is Located in Cairo, Cairo Governorate. Cairo is the political and economic capital of Egypt. Cairo has a population of over 10 million inhabitants. The population of Cairo is predominantly muslim and Cairo is the birth place of the Arab league. Cairo accounts for 10% of Egypt’s population and 22% of its economy. Cairo’s economy is largely based on government functions, trade, tourism
+                                </p>
+                            </ShowMoreText>
                         </div>
                     </div>
+
+                    {isPremium && (
+                        <div className="bg-white border border-gray-200 mb-6 relative">
+                            <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
+                                {/*<FontAwesomeIcon icon={faMapMarkerAlt} className="w-4" />*/}
+                                <span>Senior Officials</span>
+                            </div>
+                            <div className="md:p-6 py-6">
+                                <OfficialSection />
+                            </div>
+                        </div>
+                    )}
 
                 </div>
 
@@ -586,7 +766,7 @@ const UniversityPage = (props) => {
                         </div>
                     </div>
 
-                    {!isPremium && (
+                    {!isPremium ? (
                         <div className="bg-white border border-gray-200 mb-6 relative">
                             <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
                                 <span> Other Universities in Egypt</span>
@@ -683,48 +863,47 @@ const UniversityPage = (props) => {
                                     </div>
                                 </div>
                                 <div className="flex justify-center mt-4">
-                                    <ButtonDefault className="flex items-center rounded-xl space-x-2 text-sm">
+                                    <ButtonDefault className="flex items-center rounded-lg space-x-2 text-sm">
                                         <FontAwesomeIcon icon={faChevronDown} className="w-4" /><span>See More</span></ButtonDefault>
                                 </div>
                             </div>
                         </div>
+                    ) : (
+                        <div className="bg-white border border-gray-200 mb-6 relative">
+                            <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
+                                <span> Why Study at this University</span>
+                            </div>
+                            <div className="md:p-6 p-4">
+
+                                <div className="mb-5">
+                                    <div className="flex space-x-3"><FontAwesomeIcon icon={faCheck} className="w-5" /> <span className="text-xl font-normal">Top Notch Professors</span> </div>
+                                    <div className="mt-2 text-base">
+                                        The Professors at the American University in Cairo
+                                        are professionally active in their respective fields
+                                        as leaders and senior executives.
+                                    </div>
+                                </div>
+                                <div className="mb-5">
+                                    <div className="flex space-x-3"><FontAwesomeIcon icon={faCheck} className="w-5" /> <span className="text-xl font-normal">Top Notch Professors</span> </div>
+                                    <div className="mt-2 text-base">
+                                        The Professors at the American University in Cairo
+                                        are professionally active in their respective fields
+                                        as leaders and senior executives.
+                                    </div>
+                                </div>
+                                <div className="">
+                                    <div className="flex space-x-3"><FontAwesomeIcon icon={faCheck} className="w-5" /> <span className="text-xl font-normal">Top Notch Professors</span> </div>
+                                    <div className="mt-2 text-base">
+                                        The Professors at the American University in Cairo
+                                        are professionally active in their respective fields
+                                        as leaders and senior executives.
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     )}
 
-
-
-                    <div className="bg-white border border-gray-200 mb-6 relative">
-                        <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
-                            <span> Why Study at this University</span>
-                        </div>
-                        <div className="md:p-6 p-4">
-
-                            <div className="mb-5">
-                                <div className="flex space-x-3"><FontAwesomeIcon icon={faCheck} className="w-5" /> <span className="text-xl font-normal">Top Notch Professors</span> </div>
-                                <div className="mt-2 text-base">
-                                    The Professors at the American University in Cairo
-                                    are professionally active in their respective fields
-                                    as leaders and senior executives.
-                                </div>
-                            </div>
-                            <div className="mb-5">
-                                <div className="flex space-x-3"><FontAwesomeIcon icon={faCheck} className="w-5" /> <span className="text-xl font-normal">Top Notch Professors</span> </div>
-                                <div className="mt-2 text-base">
-                                    The Professors at the American University in Cairo
-                                    are professionally active in their respective fields
-                                    as leaders and senior executives.
-                                </div>
-                            </div>
-                            <div className="">
-                                <div className="flex space-x-3"><FontAwesomeIcon icon={faCheck} className="w-5" /> <span className="text-xl font-normal">Top Notch Professors</span> </div>
-                                <div className="mt-2 text-base">
-                                    The Professors at the American University in Cairo
-                                    are professionally active in their respective fields
-                                    as leaders and senior executives.
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
                     <div className="bg-white border border-gray-200 mb-6 relative">
                         <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
                             <span> Similar Universities</span>

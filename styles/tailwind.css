@@ -17,6 +17,16 @@ body {
     @apply bg-custom-menu text-custom-body leading-relaxed font-light text-base;
 }
 
+.modal{
+    overflow: hidden;
+}
+
+.modal .ReactModal__Content {
+
+    @apply rounded-none !important;
+
+}
+
 /*html {*/
 /*    scroll-behavior: smooth;*/
 /*}*/

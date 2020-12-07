@@ -57,7 +57,6 @@ const CategoryMenu = (props) => {
                         <div className="text-gray-400 text-xs hidden md:inline-block">10 Courses</div>
                     </div>
                 </Tab>
-
                 <Tab className={`${styles.tabCategory} space-x-3 px-5 py-3 md:p-0 border-b md:border-0 md:mb-2`} selectedClassName={`md:text-custom-secondary focus:outline-none`}>
                     <img src="icone-category.png" alt="" className="h-8 md:h-10"/>
                     <div className={"w-56"}>
@@ -206,6 +205,7 @@ const CategoryMenu = (props) => {
                     </div>
                 </TabPanel>
             </div>
+
         </Tabs>
 
     </>;

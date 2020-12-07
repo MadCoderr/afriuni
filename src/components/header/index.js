@@ -26,7 +26,6 @@ const Header = () => {
 
     React.useEffect(() =>{
         const elements = document.querySelector('body');
-
         if(isOpen){
             if(isMobile){
                 elements.classList.add('overflow-hidden');
@@ -51,12 +50,10 @@ const Header = () => {
     };
 
     React.useEffect(() => {
-        if(!isOpen){
-            setOpenCategory(true);
-            setOpenCountry(false);
-            setOpenOther(false);
+        if(!isOpen && isCurrentMobile){
+            isOpenCategory();
         }
-    }, [isOpen]);
+    }, [isOpen, isCurrentMobile]);
 
     React.useEffect(() => {
 

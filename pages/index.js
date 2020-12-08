@@ -4,7 +4,7 @@ import SlideShowSection from "../src/components/sections/home/slideShow";
 import AboutSection from "../src/components/sections/home/about";
 import FieldStudySection from "../src/components/sections/home/fieldStudy";
 import DestinationSection from "../src/components/sections/home/destination";
-import FeaturedCoursesSection from "../src/components/sections/home/featuredCourses";
+import FeaturedCoursesSection from "../src/components/general/featuredCourses";
 import FeaturedUniversitySection from "../src/components/sections/home/featuredUniversity";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
         <AboutSection/>
         <FieldStudySection/>
         <DestinationSection/>
-        <FeaturedCoursesSection/>
+        <FeaturedCoursesSection title="Interesting Courses" titleClassName="text-2xl md:text-5xl" sectionClassName="pt-8 md:pt-16 pb-12 md:pb-32"/>
         <FeaturedUniversitySection/>
 
     </div>

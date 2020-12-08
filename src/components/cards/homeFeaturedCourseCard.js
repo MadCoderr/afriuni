@@ -34,7 +34,7 @@ const HomeFeaturedCourseCard = (props) => {
                 </div>
             </div>
             <div className="hidden md:block">
-                <img src="logoUni.jpg" alt="" className="object-contain h-20 w-20"/>
+                <img src="../../logoUni.jpg" alt="" className="object-contain h-20 w-20"/>
             </div>
         </div>
 

@@ -1,14 +1,13 @@
 import React from 'react';
-import Link from "next/link";
-import HomeFeaturedCourseCard from "../../../cards/homeFeaturedCourseCard";
+import HomeFeaturedCourseCard from "../../cards/homeFeaturedCourseCard";
 
 
 const FeaturedCoursesSection = (props) => {
 
-    return <div className="pt-8 md:pt-16 pb-12 md:pb-32">
+    return <div className={props.sectionClassName}>
 
         <div className="container mx-auto px-4">
-            <h3 className="text-2xl md:text-5xl font-medium text-custom-primary_2 text-center mt-5 md:mb-10">Interesting Courses</h3>
+            <h3 className={`font-medium text-custom-primary_2 text-center mt-5 md:mb-10 ${props.titleClassName}`}>{props.title}</h3>
 
             <div className="mt-5 md:mt-10 space-y-4 md:space-y-0 md:grid md:grid-cols-3 grid-cols-none gap-x-4 gap-y-2 md:gap-y-6 grid-flow-row auto-cols-fr">
 

@@ -64,7 +64,7 @@ const Dropdown = ({ title, className = '', classDropdown = '', classChevron = ''
     return <div className="relative" ref={container}>
 
         <div className={className} onClick={openDropdown}>
-            {currentTitle} <div className={classChevron}><FontAwesomeIcon icon={faChevronDown} className="h-3 w-3"/></div>
+            <span>{currentTitle}</span> <div className={classChevron}><FontAwesomeIcon icon={faChevronDown} className="h-3 w-3"/></div>
         </div>
 
         {isOpen && (

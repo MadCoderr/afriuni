@@ -36,6 +36,9 @@ const Header = () => {
             }
         }else{
             elements.classList.remove('overflow-hidden')
+            setOpenCategory(false);
+            setOpenCountry(false);
+            setIsOpen(false);
         }
 
         if(isMobile){
@@ -123,7 +126,7 @@ const Header = () => {
                 <div className="md:w-4/5 block md:flex justify-start md:space-x-10 items-center">
                     <div>
                         <Link href="/">
-                            <a><img src="../logo.png" alt="" className="md:h-10 h-8"/></a>
+                            <a><img src="../../logo.png" alt="" className="md:h-8 h-8"/></a>
                         </Link>
                     </div>
                     <div className={`menuMobile ${isOpen ? "open" : ""} md:fixed md:relative z-20 bg-custom-menu md:bg-white left-0 right-0 top-0 md:h-auto md:w-4/5 h-screen`} ref={container}>
@@ -174,7 +177,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="flex space-x-5 items-center">
-                    <Dropdown title={"XAF"}  classDropdown="mt-1 w-auto rounded-md shadow-lg" className="font-semibold text-custom-primary_2 cursor-pointer inline-flex justify-center items-center py-6 hidden md:flex">
+                    <Dropdown title={"XAF"}  classDropdown="mt-1 w-auto rounded-md shadow-lg" className="space-x-2 font-semibold text-custom-primary_2 cursor-pointer inline-flex justify-center items-center py-6 hidden md:flex">
                         <ItemDropdown value={"XAF"}>XAF</ItemDropdown>
                         <ItemDropdown value={"EURO"}>EURO</ItemDropdown>
                         <ItemDropdown value={"USD"}>USD</ItemDropdown>

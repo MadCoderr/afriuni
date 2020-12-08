@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "tailwind.macro";
 
 export const Button = styled.button`
-    ${tw`normal-case font-normal py-2 px-4`} 
+    ${tw`normal-case font-normal py-2 px-4 outline-none focus:outline-none`} 
 `;
 
 export const ButtonRedPrimary = styled(Button)`

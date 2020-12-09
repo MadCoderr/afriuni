@@ -47,6 +47,10 @@ const UniversityPage = (props) => {
 
     React.useEffect(() => {
         if(router.query?.q) setIsPremium(true);
+    }, [router.query])
+
+    React.useEffect(() => {
+
         const list = [
             {
                 name : 'Ingenierie',
@@ -211,15 +215,15 @@ const UniversityPage = (props) => {
                 <div className="col-span-2">
 
                     {((isPremium && isCurrentMobile) || !isPremium) && (
-                        <div className="bg-white border border-gray-200 md:p-8 py-8 px-4 md:mb-6 mb-4">
+                        <div className="bg-white border border-gray-200 md:p-8 py-4 px-4 md:mb-6 mb-4">
 
                             <div className="flex justify-between">
                                 <div className="">
-                                    <h1 className="text-3xl font-medium text-black">
+                                    <h1 className="text-2xl md:text-3xl font-medium text-black">
                                         American University in Cairo
                                     </h1>
-                                    <div className="flex space-x-3 my-5 md:my-3 text-gray-400 text-sm md:text-base">
-                                        <FontAwesomeIcon icon={faMapMarkerAlt} className="w-4" /> <span>AUC Avenue, PO Box 74 New Cairo, Cairo</span>
+                                    <div className="flex items-center space-x-2 md:space-x-3 my-5 md:my-3 text-gray-600 text-xs md:text-base">
+                                        <FontAwesomeIcon icon={faMapMarkerAlt} className="md:w-4 w-3" /> <span>AUC Avenue, PO Box 74 New Cairo, Cairo</span>
                                     </div>
                                 </div>
                                 <div className="hidden md:block">
@@ -283,7 +287,6 @@ const UniversityPage = (props) => {
                                         less='Show less'
                                         className='text-justify'
                                         anchorClass='text-custom-primary font-normal'
-                                        onClick={""}
                                         expanded={false}
                                     >
                                         <p>
@@ -329,7 +332,7 @@ const UniversityPage = (props) => {
                     </div>
 
                     <div className="bg-white border border-gray-200 mb-6 relative">
-                        <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
+                        <div className="md:p-4 py-2 px-4 font-normal text-xl md:text-2xl border-b border-dotted border-gray-200 text-custom-secondary flex items-center space-x-3">
                            {/*<FontAwesomeIcon icon={faBookOpen} className="w-6" /> */}
                            <span>Study Programmes (75)</span>
                         </div>
@@ -339,7 +342,7 @@ const UniversityPage = (props) => {
                                     <DropdownMulti title={"Courses Catégories"}
                                               className="bg-gray-200 flex md:pl-4 pl-3 justify-between items-center text-black font-normal truncate rounded-lg md:text-base text-xs"
                                               maxHeight="100%"
-                                              classChevron="ml-4 md:p-4 px-2 py-4 bg-custom-primary text-white"
+                                              classChevron="ml-4 md:p-4 px-2 py-3 bg-custom-primary text-white"
                                               classDropdown="mt-1 rounded-md shadow-lg md:w-700 w-300"
                                               position="center" data={listData}/>
                                 </div>
@@ -347,7 +350,7 @@ const UniversityPage = (props) => {
                                     <Dropdown title={"Study Level"}
                                               className="bg-gray-200 md:pl-4 pl-3 flex justify-between items-center font-normal text-black truncate rounded-lg md:text-base text-xs"
                                               maxHeight="250px"
-                                              classChevron="ml-4 md:p-4 px-2 py-4 bg-custom-primary text-white"
+                                              classChevron="ml-4 md:p-4 px-2 py-3 bg-custom-primary text-white"
                                               classDropdown="mt-1 rounded-md shadow-lg"
                                               position="center">
                                         <ItemDropdown value={"Country"} classInactive="font-medium text-custom-primary">All Study Level</ItemDropdown>
@@ -373,58 +376,36 @@ const UniversityPage = (props) => {
                         </div>
                         <div className="m-3 md:m-6">
                             <table className="min-w-full">
-                                <thead className="text-xl text-gray-400 uppercase font-normal">
-                                <tr>
-                                    <td className="hidden md:table-cell">Programmes</td>
-                                    <td className="hidden md:table-cell">Study Level</td>
-                                    <td className="text-right hidden md:table-cell">Duration</td>
-                                </tr>
-                                </thead>
+                                {!isCurrentMobile && (
+                                    <thead className="text-xl text-gray-400 uppercase font-normal">
+                                    <tr>
+                                        <td className="hidden md:table-cell">Programmes</td>
+                                        <td className="hidden md:table-cell">Study Level</td>
+                                        <td className="text-right hidden md:table-cell">Duration</td>
+                                    </tr>
+                                    </thead>
+                                )}
                                 <tbody>
                                     <tr>
                                         <td colSpan={3} className="md:text-2xl text-xl font-normal text-black pt-4 md:pt-6 pb-3">Agriculture</td>
                                     </tr>
                                     <tr>
-                                        <td className="pl-5 py-2 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
+                                        <td className="pl-5 py-1 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
                                         <td className="hidden md:table-cell">Bachelor's</td>
                                         <td className="text-right hidden md:table-cell">4 years</td>
                                     </tr>
                                     <tr>
-                                        <td className="pl-5 py-2 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
+                                        <td className="pl-5 py-1 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
                                         <td className="hidden md:table-cell">Bachelor's</td>
                                         <td className="text-right hidden md:table-cell">4 years</td>
                                     </tr>
                                     <tr>
-                                        <td className="pl-5 py-2 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
+                                        <td className="pl-5 py-1 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
                                         <td className="hidden md:table-cell">Bachelor's</td>
                                         <td className="text-right hidden md:table-cell">4 years</td>
                                     </tr>
                                     <tr>
-                                        <td className="pl-5 py-2 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
-                                        <td className="hidden md:table-cell">Bachelor's</td>
-                                        <td className="text-right hidden md:table-cell">4 years</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td colSpan={3} className="md:text-2xl text-xl font-normal text-black pt-4 md:pt-6 pb-3">Agriculture</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pl-5 py-2 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
-                                        <td className="hidden md:table-cell">Bachelor's</td>
-                                        <td className="text-right hidden md:table-cell">4 years</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pl-5 py-2 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
-                                        <td className="hidden md:table-cell">Bachelor's</td>
-                                        <td className="text-right hidden md:table-cell">4 years</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pl-5 py-2 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
-                                        <td className="hidden md:table-cell">Bachelor's</td>
-                                        <td className="text-right hidden md:table-cell">4 years</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pl-5 py-2 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
+                                        <td className="pl-5 py-1 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
                                         <td className="hidden md:table-cell">Bachelor's</td>
                                         <td className="text-right hidden md:table-cell">4 years</td>
                                     </tr>
@@ -438,17 +419,41 @@ const UniversityPage = (props) => {
                                         <td className="text-right hidden md:table-cell">4 years</td>
                                     </tr>
                                     <tr>
-                                        <td className="pl-5 py-2 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
+                                        <td className="pl-5 py-1 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
                                         <td className="hidden md:table-cell">Bachelor's</td>
                                         <td className="text-right hidden md:table-cell">4 years</td>
                                     </tr>
                                     <tr>
-                                        <td className="pl-5 py-2 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
+                                        <td className="pl-5 py-1 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
                                         <td className="hidden md:table-cell">Bachelor's</td>
                                         <td className="text-right hidden md:table-cell">4 years</td>
                                     </tr>
                                     <tr>
-                                        <td className="md:pl-5 py-2 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
+                                        <td className="pl-5 py-1 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
+                                        <td className="hidden md:table-cell">Bachelor's</td>
+                                        <td className="text-right hidden md:table-cell">4 years</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colSpan={3} className="md:text-2xl text-xl font-normal text-black pt-4 md:pt-6 pb-3">Agriculture</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pl-5 py-1 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
+                                        <td className="hidden md:table-cell">Bachelor's</td>
+                                        <td className="text-right hidden md:table-cell">4 years</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pl-5 py-1 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
+                                        <td className="hidden md:table-cell">Bachelor's</td>
+                                        <td className="text-right hidden md:table-cell">4 years</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pl-5 py-1 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
+                                        <td className="hidden md:table-cell">Bachelor's</td>
+                                        <td className="text-right hidden md:table-cell">4 years</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pl-5 py-1 md:text-lg text-custom-primary font-normal">Agronomy - BSc</td>
                                         <td className="hidden md:table-cell">Bachelor's</td>
                                         <td className="text-right hidden md:table-cell">4 years</td>
                                     </tr>
@@ -463,7 +468,7 @@ const UniversityPage = (props) => {
                     </div>
 
                     <div className="bg-white border border-gray-200 mb-6 relative">
-                        <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
+                        <div className="md:p-4 py-2 px-4 font-normal text-xl md:text-2xl border-b border-dotted border-gray-200 text-custom-secondary flex items-center space-x-3">
                             <span>Admission</span>
                         </div>
                         <div className="px-4 py-6 md:p-6">
@@ -477,7 +482,6 @@ const UniversityPage = (props) => {
                                     less='Show less'
                                     className='text-justify'
                                     anchorClass='text-custom-primary font-normal'
-                                    onClick={""}
                                     expanded={false}
                                 >
 
@@ -498,7 +502,6 @@ const UniversityPage = (props) => {
                                     less='Show less'
                                     className='text-justify'
                                     anchorClass='text-custom-primary font-normal'
-                                    onClick={""}
                                     expanded={false}
                                 >
 
@@ -519,7 +522,6 @@ const UniversityPage = (props) => {
                                     less='Show less'
                                     className='text-justify'
                                     anchorClass='text-custom-primary font-normal'
-                                    onClick={""}
                                     expanded={true}
                                 >
 
@@ -555,7 +557,7 @@ const UniversityPage = (props) => {
                         </div>
                     </div>
 
-                    <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
+                    <div className="md:p-4 py-2 px-4 font-normal text-xl md:text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
                         <span>Faculties & Departments</span>
                     </div>
 
@@ -566,7 +568,7 @@ const UniversityPage = (props) => {
                                         <AccordionItem>
                                             <AccordionItemHeading>
                                                 <AccordionItemButton className={styles.accordion_heading_2}>
-                                                    <div className={`text-xl font-normal`}>
+                                                    <div className={`font-normal`}>
                                                         Faculty of Information Technology and
                                                         Computing
                                                     </div>
@@ -587,7 +589,7 @@ const UniversityPage = (props) => {
                                                     <AccordionItem>
                                                         <AccordionItemHeading>
                                                             <AccordionItemButton className={styles.accordion_subheading}>
-                                                                <div className="text-base text-black font-normal">
+                                                                <div className="text-sm text-black font-normal">
                                                                     Faculty of Information
                                                                 </div>
                                                                 <div className="w-auto flex justify-center text-red-400 border border-red-400 px-1 py-0">
@@ -611,7 +613,7 @@ const UniversityPage = (props) => {
                                         <AccordionItem>
                                             <AccordionItemHeading>
                                                 <AccordionItemButton className={styles.accordion_heading_2}>
-                                                    <div className="text-xl font-normal text-black">
+                                                    <div className={`font-normal`}>
                                                         Faculty of Information Technology and
                                                         Computing
                                                     </div>
@@ -622,9 +624,9 @@ const UniversityPage = (props) => {
                                                     </div>
                                                 </AccordionItemButton>
                                             </AccordionItemHeading>
-                                            <AccordionItemPanel className="bg-white px-6 pb-6">
+                                            <AccordionItemPanel className="bg-white px-6 pb-6 w-full">
                                                 <Link href={"/"}>
-                                                    <a className="text-left py-2 px-4 text-black font-normal inline-block">
+                                                    <a className="text-left py-2 px-0 text-black font-normal inline-block w-full">
                                                         Institute of Public Health
                                                     </a>
                                                 </Link>
@@ -632,12 +634,12 @@ const UniversityPage = (props) => {
                                                     <AccordionItem>
                                                         <AccordionItemHeading>
                                                             <AccordionItemButton className={styles.accordion_subheading}>
-                                                                <div className="text-base text-black font-normal">
+                                                                <div className="text-sm text-black font-normal">
                                                                     Faculty of Information
                                                                 </div>
-                                                                <div className="w-auto flex justify-center text-red-400">
+                                                                <div className="w-auto flex justify-center text-red-400 border border-red-400 px-1 py-0">
                                                                     <AccordionItemState>
-                                                                        {({ expanded }) => (expanded ? <FontAwesomeIcon icon={faMinus} className="w-4 text-base" /> : <FontAwesomeIcon icon={faPlus} className="w-4 text-base" />)}
+                                                                        {({ expanded }) => (expanded ? <FontAwesomeIcon icon={faMinus} className="w-2 text-base" /> : <FontAwesomeIcon icon={faPlus} className="w-2 text-base" />)}
                                                                     </AccordionItemState>
                                                                 </div>
                                                             </AccordionItemButton>
@@ -659,7 +661,7 @@ const UniversityPage = (props) => {
                     </div>
 
                     <div className="bg-white border border-gray-200 mb-6 relative">
-                        <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
+                        <div className="md:p-4 py-2 px-4 font-normal text-xl md:text-2xl border-b border-dotted border-gray-200 text-custom-secondary flex items-center space-x-3">
                             {/*<FontAwesomeIcon icon={faGraduationCap} className="w-6" /> */}
                             <span> Scholarships</span>
                         </div>
@@ -671,7 +673,6 @@ const UniversityPage = (props) => {
                                 less='Show less'
                                 className='text-justify'
                                 anchorClass='text-custom-primary font-normal'
-                                onClick={""}
                                 expanded={false}
                             >
                                 <p>
@@ -683,7 +684,7 @@ const UniversityPage = (props) => {
                     </div>
 
                     <div className="bg-white border border-gray-200 mb-6 relative">
-                        <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
+                        <div className="md:p-4 py-2 px-4 font-normal text-xl md:text-2xl border-b border-dotted border-gray-200 text-custom-secondary flex items-center space-x-3">
                             {/*<FontAwesomeIcon icon={faMapMarkerAlt} className="w-4" />*/}
                             <span>Location</span>
                         </div>
@@ -695,7 +696,6 @@ const UniversityPage = (props) => {
                                 less='Show less'
                                 className='text-justify'
                                 anchorClass='text-custom-primary font-normal'
-                                onClick={""}
                                 expanded={false}
                             >
                                 <p>
@@ -707,7 +707,7 @@ const UniversityPage = (props) => {
 
                     {isPremium && (
                         <div className="bg-white border border-gray-200 mb-6 relative">
-                            <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
+                            <div className="md:p-4 py-2 px-4 font-normal text-xl md:text-2xl border-b border-dotted border-gray-200 text-custom-secondary flex items-center space-x-3">
                                 {/*<FontAwesomeIcon icon={faMapMarkerAlt} className="w-4" />*/}
                                 <span>Senior Officials</span>
                             </div>
@@ -745,7 +745,7 @@ const UniversityPage = (props) => {
                     )}
 
                     <div className="bg-white border border-gray-200 mb-6 relative">
-                        <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
+                        <div className="md:p-4 py-2 px-4 font-normal text-xl md:text-2xl border-b border-dotted border-gray-200 text-custom-secondary flex items-center space-x-3">
                             <span> Contact this University</span>
                         </div>
                         <div className="p-6 space-y-5">
@@ -768,7 +768,7 @@ const UniversityPage = (props) => {
 
                     {!isPremium ? (
                         <div className="bg-white border border-gray-200 mb-6 relative">
-                            <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
+                            <div className="md:p-4 py-2 px-4 font-normal text-xl md:text-2xl border-b border-dotted border-gray-200 text-custom-secondary flex items-center space-x-3">
                                 <span> Other Universities in Egypt</span>
                             </div>
                             <div className="md:p-6 p-4">
@@ -870,7 +870,7 @@ const UniversityPage = (props) => {
                         </div>
                     ) : (
                         <div className="bg-white border border-gray-200 mb-6 relative">
-                            <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
+                            <div className="md:p-4 py-2 px-4 font-normal text-xl md:text-2xl border-b border-dotted border-gray-200 text-custom-secondary flex items-center space-x-3">
                                 <span> Why Study at this University</span>
                             </div>
                             <div className="md:p-6 p-4">
@@ -905,10 +905,10 @@ const UniversityPage = (props) => {
                     )}
 
                     <div className="bg-white border border-gray-200 mb-6 relative">
-                        <div className="md:p-6 p-4 font-normal text-2xl border-b border-dotted border-gray-200 text-black flex items-center space-x-3">
+                        <div className="md:p-4 py-2 px-4 font-normal text-xl md:text-2xl border-b border-dotted border-gray-200 text-custom-secondary flex items-center space-x-3">
                             <span> Similar Universities</span>
                         </div>
-                        <div className="md:p-6 p-4">
+                        <div className="md:p-6 px-4 py-2">
 
                             <div className="flex justify-between space-x-4">
                                 <div>
@@ -953,5 +953,31 @@ const UniversityPage = (props) => {
 
     </div>
 };
+
+// This function gets called at build time
+export async function getStaticPaths() {
+
+    return {
+        // Only `/posts/1` and `/posts/2` are generated at build time
+        paths: [],
+        // Enable statically generating additional pages
+        // For example: `/posts/3`
+        fallback: true,
+    }
+}
+
+// This also gets called at build time
+export async function getStaticProps({params}) {
+    // params contains the post `id`.
+    // If the route is like /posts/1, then params.id is 1
+
+    // Pass post data to the page via props
+    return {
+        props: { type: params.slug },
+        // Re-generate the post at most once per second
+        // if a request comes in
+        // revalidate: 1,
+    }
+}
 
 export default UniversityPage;

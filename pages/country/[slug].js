@@ -5,7 +5,7 @@ import {
     faBookOpen,
     faChevronDown,
     faChevronLeft,
-    faChevronRight,
+    faChevronRight, faPlay,
     faPlayCircle,
     faUniversity
 } from "@fortawesome/free-solid-svg-icons";
@@ -23,6 +23,7 @@ import {
 } from 'react-accessible-accordion';
 
 import {useMediaQuery} from "react-responsive";
+import DestinationCard from "../../src/components/cards/DestinationCard";
 
 
 
@@ -71,19 +72,19 @@ const CountryPage = (props) => {
 
                 <div className="md:col-span-2">
 
-                    <div className="bg-white border border-gray-200 md:p-8 py-8 px-4 md:mb-6 mb-4">
+                    <div className="bg-white border border-gray-200 md:py-4 md:px-6 py-4 px-4 md:mb-6 mb-4">
                         <div className="flex justify-between">
                             <div className="md:w-full w-10/12">
                                 <h1 className="text-3xl font-medium text-black">
                                     South Africa
                                 </h1>
                                 {!isCurrentMobile && (
-                                    <div className="md:flex items-center text-custom-primary text-lg my-7 space-x-20 font-normal hidden">
+                                    <div className="md:flex items-center my-4 space-x-20 font-normal hidden">
                                         <div className="flex items-center space-x-3">
-                                            <FontAwesomeIcon icon={faBookOpen} className="w-6" /> <span>265 Courses</span>
+                                            <FontAwesomeIcon icon={faBookOpen} className="w-6" /> <span className="text-custom-primary text-lg">265 Courses</span>
                                         </div>
                                         <div className="flex items-center space-x-3">
-                                            <FontAwesomeIcon icon={faUniversity} className="w-6"/> <span>10 Universities</span>
+                                            <FontAwesomeIcon icon={faUniversity} className="w-6"/> <span className="text-custom-primary text-lg">10 Universities</span>
                                         </div>
                                     </div>
                                 )}
@@ -93,20 +94,20 @@ const CountryPage = (props) => {
                             </div>
                         </div>
                         {isCurrentMobile && (
-                            <div className="flex items-center text-custom-primary text-lg my-7 w-full justify-between font-normal md:hidden">
+                            <div className="flex items-center text-lg my-4 w-full justify-between font-normal md:hidden">
                                 <div className="flex items-center space-x-3">
-                                    <FontAwesomeIcon icon={faBookOpen} className="w-4" /> <span className="text-sm">265 Courses</span>
+                                    <FontAwesomeIcon icon={faBookOpen} className="w-4" /> <span className="text-sm text-custom-primary">265 Courses</span>
                                 </div>
                                 <div className="flex items-center space-x-3">
-                                    <FontAwesomeIcon icon={faUniversity} className="w-4"/> <span className="text-sm">10 Universities</span>
+                                    <FontAwesomeIcon icon={faUniversity} className="w-4"/> <span className="text-sm text-custom-primary">10 Universities</span>
                                 </div>
                             </div>
                         )}
                         <div className="flex items-center md:space-x-8 w-full justify-between md:justify-start">
                             <div className="md:text-lg text-sm font-normal"><span className="font-medium">Academy year</span> : Fev - Nov</div>
                             <div>
-                                <div className="bg-gray-200 hover:bg-red-200 hover:text-red-600 text-black text-xs md:text-base md:px-4 px-2 py-2 flex items-center space-x-2 rounded-lg">
-                                    <FontAwesomeIcon icon={faPlayCircle} className="md:w-5 w-3" /> <span>Watch Video</span>
+                                <div className="text-black text-sm md:text-base flex items-center space-x-2 rounded-lg">
+                                    <span className="md:px-2 px-1.5 md:py-1.5 py-1.5 rounded-full border border-black"><FontAwesomeIcon icon={faPlay} className="md:w-2 w-1.5" /></span> <span className="underline font-normal">Watch Video</span>
                                 </div>
                             </div>
                         </div>
@@ -124,30 +125,30 @@ const CountryPage = (props) => {
 
                             <div className="grid grid-cols-3 divide-x divide-gray-200 border-b border-gray-200">
 
-                                <div className="py-5 px-2 break-words items-center font-normal text-xs text-center">
-                                    <div className="break-words inline">Diploma/Certificate</div>
+                                <div className="py-3 px-2 break-words items-center text-center text-xs">
+                                    <div className="break-words inline text-custom-primary font-normal">Diploma/Certificate</div>
                                     <div className="text-gray-400 mt-1">(10 Courses)</div>
                                 </div>
-                                <div className="py-5 px-2 break-words items-center font-normal text-xs text-center">
-                                    <div className="break-words inline">Diploma/Certificate</div>
+                                <div className="py-3 px-2 break-words items-center text-center text-xs">
+                                    <div className="break-words inline text-custom-primary font-normal">Diploma/Certificate</div>
                                     <div className="text-gray-400 mt-1">(10 Courses)</div>
                                 </div>
-                                <div className="py-5 px-2 break-words items-center font-normal text-xs text-center">
-                                    <div className="break-words inline">Diploma/Certificate</div>
+                                <div className="py-3 px-2 break-words items-center text-center text-xs">
+                                    <div className="break-words inline text-custom-primary font-normal">Diploma/Certificate</div>
                                     <div className="text-gray-400 mt-1">(10 Courses)</div>
                                 </div>
                             </div>
                             <div className="grid grid-cols-3 divide-x divide-gray-200 border-b border-gray-200">
 
-                                <div className="py-5 px-2 break-words items-center font-normal text-xs text-center">
-                                    <div className="break-words inline">Diploma/Certificate</div>
+                                <div className="py-3 px-2 break-words items-center text-center text-xs">
+                                    <div className="break-words inline text-custom-primary font-normal">Diploma/Certificate</div>
                                     <div className="text-gray-400 mt-1">(10 Courses)</div>
                                 </div>
-                                <div className="py-5 px-2 break-words items-center font-normal text-xs text-center">
-                                    <div className="break-words inline">Diploma/Certificate</div>
+                                <div className="py-3 px-2 break-words items-center text-center text-xs">
+                                    <div className="break-words inline text-custom-primary font-normal">Diploma/Certificate</div>
                                     <div className="text-gray-400 mt-1">(10 Courses)</div>
                                 </div>
-                                <div className="py-5 px-2 break-words items-center font-normal text-xs text-center">
+                                <div className="py-3 px-2 break-words items-center text-center">
 
                                 </div>
                             </div>
@@ -156,8 +157,8 @@ const CountryPage = (props) => {
                     )}
 
                     <div className="bg-white border border-gray-200 mb-6">
-                        <div className="md:p-6 p-4 font-normal text-2xl border-b border-gray-200 text-black">
-                            University in south africa <span className="text-red-400">(25)</span>
+                        <div className="md:p-4 py-2 px-4 font-normal text-2xl border-b border-gray-200 text-black text-custom-secondary">
+                            University in south africa <span>(25)</span>
                         </div>
                         <div className="md:p-6 p-4">
 
@@ -192,28 +193,28 @@ const CountryPage = (props) => {
 
                             <div className="">
 
-                                <div className="md:text-2xl text-xl font-normal text-black mt-8 md:mt-12 mb-3">
+                                <div className="md:text-2xl text-xl font-normal text-black mt-5 md:mt-12 mb-3">
                                     Johanesburg
                                 </div>
                                 <div className="md:pl-5 md:text-lg text-custom-primary font-normal">
                                     <ul className="space-y-2">
-                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5">(20 Courses)</span></li>
-                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5">(20 Courses)</span></li>
-                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5">(20 Courses)</span></li>
-                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5">(20 Courses)</span></li>
-                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5">(20 Courses)</span></li>
+                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5 font-thin italic">(20 Courses)</span></li>
+                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5 font-thin italic">(20 Courses)</span></li>
+                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5 font-thin italic">(20 Courses)</span></li>
+                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5 font-thin italic">(20 Courses)</span></li>
+                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5 font-thin italic">(20 Courses)</span></li>
                                     </ul>
                                 </div>
-                                <div className="md:text-2xl text-xl font-normal text-black mt-8 md:mt-12 mb-3">
+                                <div className="md:text-2xl text-xl font-normal text-black mt-5 md:mt-12 mb-3">
                                     Johanesburg
                                 </div>
                                 <div className="md:pl-5 md:text-lg text-custom-primary font-normal">
                                     <ul className="space-y-2">
-                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5">(20 Courses)</span></li>
-                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5">(20 Courses)</span></li>
-                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5">(20 Courses)</span></li>
-                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5">(20 Courses)</span></li>
-                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5">(20 Courses)</span></li>
+                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5 font-thin italic">(20 Courses)</span></li>
+                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5 font-thin italic">(20 Courses)</span></li>
+                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5 font-thin italic">(20 Courses)</span></li>
+                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5 font-thin italic">(20 Courses)</span></li>
+                                        <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link> <span className="text-gray-400 text-xs md:text-base ml-2 md:ml-5 font-thin italic">(20 Courses)</span></li>
                                     </ul>
                                 </div>
 
@@ -233,52 +234,49 @@ const CountryPage = (props) => {
                     {!isCurrentMobile && (
 
                         <div className="bg-white border border-gray-200 mb-6 text-black">
-                            <div className="p-6 font-normal text-lg border-b border-gray-200 text-black">
-                                Study Programmes in south africa
-                            </div>
                             <div className="grid grid-cols-2 divide-x divide-gray-200 border-b border-gray-200">
 
-                                <div className="p-10 flex flex-col items-center font-normal text-center">
-                                    <div>Diploma/Certificate</div>
-                                    <div>10 programmes</div>
+                                <div className="p-4 flex flex-col items-center text-center">
+                                    <div className="text-custom-primary font-normal">Diploma/Certificate</div>
+                                    <div className="text-gray-600">(10 Courses)</div>
                                 </div>
-                                <div className="p-10 flex flex-col items-center font-normal text-center">
-                                    <div>Diploma/Certificate</div>
-                                    <div>10 programmes</div>
-                                </div>
-
-                            </div>
-                            <div className="grid grid-cols-2 divide-x divide-gray-200 border-b border-gray-200">
-
-                                <div className="p-10 flex flex-col items-center font-normal text-center">
-                                    <div>Diploma/Certificate</div>
-                                    <div>10 programmes</div>
-                                </div>
-                                <div className="p-10 flex flex-col items-center font-normal text-center">
-                                    <div>Diploma/Certificate</div>
-                                    <div>10 programmes</div>
+                                <div className="p-4 flex flex-col items-center text-center">
+                                    <div className="text-custom-primary font-normal">Diploma/Certificate</div>
+                                    <div className="text-gray-600">(10 Courses)</div>
                                 </div>
 
                             </div>
                             <div className="grid grid-cols-2 divide-x divide-gray-200 border-b border-gray-200">
 
-                                <div className="p-10 flex flex-col items-center font-normal text-center">
-                                    <div>Diploma/Certificate</div>
-                                    <div>10 programmes</div>
+                                <div className="p-4 flex flex-col items-center text-center">
+                                    <div className="text-custom-primary font-normal">Diploma/Certificate</div>
+                                    <div className="text-gray-600">(10 Courses)</div>
                                 </div>
-                                <div className="p-10 flex flex-col items-center font-normal text-center">
-                                    <div>Diploma/Certificate</div>
-                                    <div>10 programmes</div>
+                                <div className="p-4 flex flex-col items-center text-center">
+                                    <div className="text-custom-primary font-normal">Diploma/Certificate</div>
+                                    <div className="text-gray-600">(10 Courses)</div>
                                 </div>
 
                             </div>
                             <div className="grid grid-cols-2 divide-x divide-gray-200 border-b border-gray-200">
 
-                                <div className="p-10 flex flex-col items-center font-normal text-center">
-                                    <div>Diploma/Certificate</div>
-                                    <div>10 programmes</div>
+                                <div className="p-4 flex flex-col items-center text-center">
+                                    <div className="text-custom-primary font-normal">Diploma/Certificate</div>
+                                    <div className="text-gray-600">(10 Courses)</div>
                                 </div>
-                                <div className="p-10 flex flex-col items-center font-normal text-center">
+                                <div className="p-4 flex flex-col items-center text-center">
+                                    <div className="text-custom-primary font-normal">Diploma/Certificate</div>
+                                    <div className="text-gray-600">(10 Courses)</div>
+                                </div>
+
+                            </div>
+                            <div className="grid grid-cols-2 divide-x divide-gray-200 border-b border-gray-200">
+
+                                <div className="p-4 flex flex-col items-center text-center">
+                                    <div className="text-custom-primary font-normal">Diploma/Certificate</div>
+                                    <div className="text-gray-600">(10 Courses)</div>
+                                </div>
+                                <div className="p-4 flex flex-col items-center font-normal text-center">
                                     {/*<div>Diploma/Certificate</div>*/}
                                     {/*<div>10 programmes</div>*/}
                                 </div>
@@ -288,27 +286,26 @@ const CountryPage = (props) => {
                     )}
 
                     <div className="bg-white border border-gray-200 mb-6">
-                        <div className="md:p-6 p-4 font-normal text-2xl border-b border-gray-200 text-black">
+                        <div className="md:p-4 py-2 px-4 font-normal md:text-2xl text-xl border-b border-gray-200 text-custom-secondary">
                             Courses in south Africa
                         </div>
                         <div>
-
                             <Accordion className={styles.accordion} allowZeroExpanded>
-                                <AccordionItem>
+                                <AccordionItem activeClassName="bg-custom-primary bg-opacity-10 text-black font-normal">
                                     <AccordionItemHeading>
                                         <AccordionItemButton className={styles.accordion_heading}>
-                                            <div className="text-lg">
+                                            <div className="text-base md:text-xl">
                                                 Ingenieurie (15)
                                             </div>
-                                            <div className="bg-white text-red-400 md:bg-custom-primary px-6 md:py-5 py-3 md:text-white md:w-1/5 w-auto flex justify-center">
+                                            <div className="px-6 md:py-4 py-3 w-auto flex justify-center">
                                                 <AccordionItemState>
-                                                    {({ expanded }) => (expanded ? <FontAwesomeIcon icon={faChevronDown} className="w-4 h-4 text-base" /> : <FontAwesomeIcon icon={faChevronLeft} className="w-3 text-base" />)}
+                                                    {({ expanded }) => (expanded ? <FontAwesomeIcon icon={faChevronDown} className="w-4 h-4 text-base text-gray-600" /> : <FontAwesomeIcon icon={faChevronLeft} className="w-3 text-base text-custom-secondary" />)}
                                                 </AccordionItemState>
                                             </div>
                                         </AccordionItemButton>
                                     </AccordionItemHeading>
-                                    <AccordionItemPanel className="px-16 py-5 bg-custom-primary bg-opacity-50 md:bg-white md:bg-opacity-100 text-black md:text-custom-primary">
-                                        <ul className="list-disc leading-relaxed space-y-3">
+                                    <AccordionItemPanel className="px-8 md:py-5 py-3">
+                                        <ul className="list-disc leading-relaxed space-y-2 list-inside font-light text-sm md:text-base">
                                             <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa) list-disc list-disc</a></Link></li>
                                             <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link></li>
                                             <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link></li>
@@ -317,21 +314,21 @@ const CountryPage = (props) => {
                                         </ul>
                                     </AccordionItemPanel>
                                 </AccordionItem>
-                                <AccordionItem>
+                                <AccordionItem activeClassName="bg-custom-primary bg-opacity-10 text-black font-normal">
                                     <AccordionItemHeading>
-                                        <AccordionItemButton className={`${styles.accordion_heading} ${<AccordionItemState>{({ expanded }) => (expanded ? 'bg-custom-primary bg-opacity-50' : '')}</AccordionItemState>}`}>
-                                            <div className={`text-lg`}>
+                                        <AccordionItemButton className={styles.accordion_heading}>
+                                            <div className="text-base md:text-xl">
                                                 Ingenieurie (15)
                                             </div>
-                                            <div className="bg-white text-red-400 md:bg-custom-primary px-6 md:py-5 py-3 md:text-white md:w-1/5 w-auto flex justify-center">
+                                            <div className="px-6 md:py-4 py-3 w-auto flex justify-center">
                                                 <AccordionItemState>
-                                                    {({ expanded }) => (expanded ? <FontAwesomeIcon icon={faChevronDown} className="w-4 text-base" /> : <FontAwesomeIcon icon={faChevronLeft} className="w-3 text-base" />)}
+                                                    {({ expanded }) => (expanded ? <FontAwesomeIcon icon={faChevronDown} className="w-4 h-4 text-base text-gray-600" /> : <FontAwesomeIcon icon={faChevronLeft} className="w-3 text-base text-custom-secondary" />)}
                                                 </AccordionItemState>
                                             </div>
                                         </AccordionItemButton>
                                     </AccordionItemHeading>
-                                    <AccordionItemPanel className="px-16 py-5 bg-custom-primary bg-opacity-50 md:bg-white md:bg-opacity-100 text-black md:text-custom-primary">
-                                        <ul className="list-disc leading-relaxed space-y-3">
+                                    <AccordionItemPanel className="px-8 md:py-5 py-3">
+                                        <ul className="list-disc leading-relaxed space-y-2 list-inside font-light text-sm md:text-base">
                                             <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa) list-disc list-disc</a></Link></li>
                                             <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link></li>
                                             <li><Link href="/university/pretoria"><a>IIE MSA (Norash South Africa)</a></Link></li>
@@ -340,10 +337,36 @@ const CountryPage = (props) => {
                                         </ul>
                                     </AccordionItemPanel>
                                 </AccordionItem>
+
                             </Accordion>
 
                         </div>
                     </div>
+
+                    {isCurrentMobile && (
+                        <div className="bg-white border border-gray-200 mb-6">
+                            <div className="md:p-4 py-2 px-4 font-normal text-xl border-b border-gray-200 text-custom-secondary">
+                                Other Countries in Africa
+                            </div>
+                            <div>
+                                <div className="px-2 py-3 grid md:grid-cols-5 grid-cols-2 gap-x-3 md:gap-x-6 gap-y-4 md:gap-y-8">
+
+                                    <DestinationCard/>
+                                    <DestinationCard/>
+                                    <DestinationCard/>
+                                    <DestinationCard/>
+                                    <DestinationCard/>
+                                    <DestinationCard/>
+                                    <DestinationCard/>
+                                    <DestinationCard/>
+                                    <DestinationCard/>
+                                    <DestinationCard/>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    )}
 
                 </div>
 

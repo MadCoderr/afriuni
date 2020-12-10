@@ -378,7 +378,7 @@ const FilterSection = (props) => {
                 <Accordion  allowZeroExpanded allowMultipleExpanded preExpanded={[0, 1, 2, 3, 4, 5, 6, 7, 8]} className="border-0">
                     <AccordionItem uuid={0} className="mb-5 bg-white border border-gray-200 outline-none">
                         <AccordionItemHeading>
-                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none">
+                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none border-b md:border-0">
                                 <div className="font-normal text-xl text-red-500">
                                     Specialisation
                                 </div>
@@ -389,13 +389,13 @@ const FilterSection = (props) => {
                                 </div>
                             </AccordionItemButton>
                         </AccordionItemHeading>
-                        <AccordionItemPanel className="px-8 pb-5 bg-white">
+                        <AccordionItemPanel className="px-8 md:pb-5 py-5 bg-white">
                             <ComposeFilter data={specialisationData} backTitle={"All Fields of Study"}/>
                         </AccordionItemPanel>
                     </AccordionItem>
                     <AccordionItem uuid={1} className="mb-5 bg-white border border-gray-200 outline-none">
                         <AccordionItemHeading>
-                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none">
+                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none border-b md:border-0">
                                 <div className="font-normal text-xl text-red-500">
                                     Degree Type
                                 </div>
@@ -406,13 +406,13 @@ const FilterSection = (props) => {
                                 </div>
                             </AccordionItemButton>
                         </AccordionItemHeading>
-                        <AccordionItemPanel className="px-8 pb-5 bg-white">
+                        <AccordionItemPanel className="px-8 py-5 md:pb-5 bg-white">
                             <ElementFilter data={degreeTypeData}/>
                         </AccordionItemPanel>
                     </AccordionItem>
                     <AccordionItem uuid={2} className="mb-5 bg-white border border-gray-200 outline-none">
                         <AccordionItemHeading>
-                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none">
+                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none border-b md:border-0">
                                 <div className="font-normal text-xl text-red-500">
                                     Countries
                                 </div>
@@ -423,13 +423,13 @@ const FilterSection = (props) => {
                                 </div>
                             </AccordionItemButton>
                         </AccordionItemHeading>
-                        <AccordionItemPanel className="px-8 pb-5 bg-white">
+                        <AccordionItemPanel className="px-8 py-5 md:pb-5 bg-white">
                             <ComposeFilter data={countriesData} backTitle={"Select others countries"} multiData={true} showCount={3}/>
                         </AccordionItemPanel>
                     </AccordionItem>
                     <AccordionItem uuid={4} className="mb-5 bg-white border border-gray-200 outline-none">
                         <AccordionItemHeading>
-                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none">
+                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none border-b md:border-0">
                                 <div className="font-normal text-xl text-red-500">
                                     Admissions
                                 </div>
@@ -440,13 +440,13 @@ const FilterSection = (props) => {
                                 </div>
                             </AccordionItemButton>
                         </AccordionItemHeading>
-                        <AccordionItemPanel className="px-8 pb-5 bg-white">
+                        <AccordionItemPanel className="px-8 py-5 md:pb-5 bg-white">
                             <ElementFilter data={admissionData}/>
                         </AccordionItemPanel>
                     </AccordionItem>
                     <AccordionItem uuid={2} className="mb-5 bg-white border border-gray-200 outline-none">
                         <AccordionItemHeading>
-                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none">
+                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none border-b md:border-0">
                                 <div className="font-normal text-xl text-red-500">
                                     Duration
                                 </div>
@@ -457,13 +457,13 @@ const FilterSection = (props) => {
                                 </div>
                             </AccordionItemButton>
                         </AccordionItemHeading>
-                        <AccordionItemPanel className="px-8 pb-5 bg-white">
+                        <AccordionItemPanel className="px-8 py-5 md:pb-5 bg-white">
                             <ElementFilter data={durationData}/>
                         </AccordionItemPanel>
                     </AccordionItem>
                     <AccordionItem uuid={2} className="mb-5 bg-white border border-gray-200 outline-none">
                         <AccordionItemHeading>
-                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none">
+                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none border-b md:border-0">
                                 <div className="font-normal text-xl text-red-500">
                                     Tuitions Fees
                                 </div>
@@ -474,13 +474,13 @@ const FilterSection = (props) => {
                                 </div>
                             </AccordionItemButton>
                         </AccordionItemHeading>
-                        <AccordionItemPanel className="px-8 pb-5 bg-white">
+                        <AccordionItemPanel className="px-8 md:py-5 pb-5 bg-white">
                             <ElementFilter data={tuitionData}/>
                         </AccordionItemPanel>
                     </AccordionItem>
                     <AccordionItem uuid={2} className="mb-5 bg-white border border-gray-200 outline-none">
                         <AccordionItemHeading>
-                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none">
+                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none border-b md:border-0">
                                 <div className="font-normal text-xl text-red-500">
                                     Attendance
                                 </div>
@@ -491,13 +491,13 @@ const FilterSection = (props) => {
                                 </div>
                             </AccordionItemButton>
                         </AccordionItemHeading>
-                        <AccordionItemPanel className="px-8 pb-5 bg-white">
+                        <AccordionItemPanel className="px-8 py-5 md:pb-5 bg-white">
                             <ElementFilter data={attendanceData}/>
                         </AccordionItemPanel>
                     </AccordionItem>
                     <AccordionItem uuid={2} className="mb-5 bg-white border border-gray-200 outline-none">
                         <AccordionItemHeading>
-                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none">
+                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none border-b md:border-0">
                                 <div className="font-normal text-xl text-red-500">
                                     Language of Study
                                 </div>
@@ -508,13 +508,13 @@ const FilterSection = (props) => {
                                 </div>
                             </AccordionItemButton>
                         </AccordionItemHeading>
-                        <AccordionItemPanel className="px-8 pb-5 bg-white">
+                        <AccordionItemPanel className="px-8 py-5 md:pb-5 bg-white">
                             <ElementFilter data={languageData}/>
                         </AccordionItemPanel>
                     </AccordionItem>
                     <AccordionItem uuid={2} className="mb-5 bg-white border border-gray-200 outline-none">
                         <AccordionItemHeading>
-                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none">
+                            <AccordionItemButton className="bg-white pl-6 flex justify-between items-center outline-none border-b md:border-0">
                                 <div className="font-normal text-xl text-red-500">
                                     Delivery Mode
                                 </div>
@@ -525,7 +525,7 @@ const FilterSection = (props) => {
                                 </div>
                             </AccordionItemButton>
                         </AccordionItemHeading>
-                        <AccordionItemPanel className="px-8 pb-5 bg-white">
+                        <AccordionItemPanel className="px-8 py-5 md:pb-5 bg-white">
                             <ElementFilter data={deliveryDara}/>
                         </AccordionItemPanel>
                     </AccordionItem>

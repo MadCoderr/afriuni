@@ -8,8 +8,10 @@ const CountryUniversityCard = (props) => {
 
     return <div className="bg-white border border-gray-200 md:p-4 py-2 px-4">
         <div className="flex justify-between space-x-4">
-            <img src="../univAshesi.jpeg" alt="" className="object-cover w-28 rounded-md"/>
-            <div>
+            <div className="flex-none">
+                <img src="../univAshesi.jpeg" alt="" className="object-cover w-28 h-full rounded-md"/>
+            </div>
+            <div className="flex-1">
                 <Link href="/university/pretoria">
                     <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-14 leading-6">
                         Institut Universitaire de la Cote

@@ -17,3 +17,7 @@ export const ButtonRedSecondary = styled(Button)`
 export const ButtonDefault = styled(Button)`
     ${tw`bg-gray-400 text-black hover:text-white hover:bg-black`}
 `;
+
+export const ButtonDefaultSecondary = styled(Button)`
+    ${tw`bg-white border border-gray-400`}
+`

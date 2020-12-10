@@ -129,7 +129,7 @@ const Header = () => {
                             <a><img src="../../logo.png" alt="" className="md:h-8 h-8"/></a>
                         </Link>
                     </div>
-                    <div className={`menuMobile ${isOpen ? "open" : ""} md:fixed md:relative z-20 bg-custom-menu md:bg-white left-0 right-0 top-0 md:h-auto md:w-4/5 h-screen`} ref={container}>
+                    <div className={`menuMobile ${isOpen ? "open" : ""} md:fixed md:relative z-30 bg-custom-menu md:bg-white left-0 right-0 top-0 md:h-auto md:w-4/5 h-screen`} ref={container}>
                         <div className="md:flex justify-between items-center md:space-x-20">
                             <div className="flex items-center">
                                 <div className={`${styles.tabMenu} ${openCategory ? styles.tabMenuOpen : ""}`} onClick={isOpenCategory}>
@@ -155,7 +155,7 @@ const Header = () => {
                             </div>
                         </div>
                         {(openCategory || openCountry || openOther) && (
-                            <div className="md:border-t border-gray-200 shadow-xl md:rounded-b-lg absolute right-0 left-0 md:h-auto md:bg-white origin-top z-20 h-full overflow-y-scroll md:overflow-hidden">
+                            <div className="md:border-t border-gray-200 shadow-xl md:rounded-b-lg absolute right-0 left-0 md:h-auto md:bg-white origin-top z-30 h-full overflow-y-scroll md:overflow-hidden">
                                 <div className="container mx-auto md:px-6 md:py-4 text-sm">
 
                                     {openCategory && (

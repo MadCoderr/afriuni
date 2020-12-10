@@ -4,7 +4,7 @@ import Link from "next/link";
 import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import styles from '../../styles/globals.module.scss';
-import DestinationCard from "../../src/components/cards/DestinationCard";
+import DestinationCard from "../../src/components/cards/destinationCard";
 
 
 const CountriesPage = (props) => {

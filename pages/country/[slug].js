@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "../../styles/globals.module.scss";
 import Head from "next/dist/next-server/lib/head";
-import CountryUniversityCard from "../../src/components/cards/CountryUniversityCard";
+import CountryUniversityCard from "../../src/components/cards/countryUniversityCard";
 import Dropdown, {ItemDropdown} from "../../src/components/general/dropdown";
 import {
     Accordion,
@@ -23,7 +23,7 @@ import {
 } from 'react-accessible-accordion';
 
 import {useMediaQuery} from "react-responsive";
-import DestinationCard from "../../src/components/cards/DestinationCard";
+import DestinationCard from "../../src/components/cards/destinationCard";
 
 
 
@@ -349,7 +349,7 @@ const CountryPage = (props) => {
                                 Other Countries in Africa
                             </div>
                             <div>
-                                <div className="px-2 py-3 grid md:grid-cols-5 grid-cols-2 gap-x-3 md:gap-x-6 gap-y-4 md:gap-y-8">
+                                <div className="px-2 py-3 grid md:grid-cols-5 grid-cols-3 gap-x-3 md:gap-x-6 gap-y-4 md:gap-y-8">
 
                                     <DestinationCard/>
                                     <DestinationCard/>

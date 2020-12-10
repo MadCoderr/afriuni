@@ -772,12 +772,14 @@ const UniversityPage = (props) => {
                                 <span> Other Universities in Egypt</span>
                             </div>
                             <div className="md:p-6 p-4">
-                                <div className="pb-5">
+                                <div className="pb-4">
                                     <div className="flex justify-between space-x-4">
-                                        <img src="../univAshesi.jpeg" alt="" className="object-cover w-28 rounded-md"/>
-                                        <div>
+                                        <div className="flex-none">
+                                            <img src="../univAshesi.jpeg" alt="" className="object-cover w-28 h-full rounded-md"/>
+                                        </div>
+                                        <div className="flex-1">
                                             <Link href="/university/pretoria">
-                                                <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-13 leading-7">
+                                                <a className="md:text-xl text-base font-normal text-custom-primary truncate-2-lines max-h-13 leading-7">
                                                     Institut Universitaire de la Cote
                                                 </a>
                                             </Link>
@@ -791,14 +793,14 @@ const UniversityPage = (props) => {
                                     </div>
                                     <div className="flex justify-between items-center md:mt-3 mt-2 text-gray-600 text-sm md:text-base">
                                         <div className="w-28 text-center">10 photos</div>
-                                        <div className="text-gray-400 italic">Featured</div>
+                                        <div className="text-gray-400 italic text-xs">Featured</div>
                                     </div>
                                 </div>
-                                <div className="flex items-start border-t border-gray-400 py-5">
+                                <div className="flex items-start border-t border-gray-400 md:py-5 py-3">
                                     <div className="w-1/12 pt-2 text-gray-400"><FontAwesomeIcon icon={faCircle} className="w-3" /></div>
                                     <div className="w-11/12">
                                         <Link href="/">
-                                            <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
+                                            <a className="md:text-xl text-lg font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
                                                 Institut Universitaire de la Cote
                                             </a>
                                         </Link>
@@ -811,11 +813,11 @@ const UniversityPage = (props) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex items-start border-t border-gray-400 py-5">
+                                <div className="flex items-start border-t border-gray-400 md:py-5 py-3">
                                     <div className="w-1/12 pt-2 text-gray-400"><FontAwesomeIcon icon={faCircle} className="w-3" /></div>
                                     <div className="w-11/12">
                                         <Link href="/">
-                                            <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
+                                            <a className="md:text-xl text-lg font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
                                                 Institut Universitaire de la Cote
                                             </a>
                                         </Link>
@@ -828,11 +830,11 @@ const UniversityPage = (props) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex items-start border-t border-gray-400 py-5">
+                                <div className="flex items-start border-t border-gray-400 md:py-5 py-3">
                                     <div className="w-1/12 pt-2 text-gray-400"><FontAwesomeIcon icon={faCircle} className="w-3" /></div>
                                     <div className="w-11/12">
                                         <Link href="/">
-                                            <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
+                                            <a className="md:text-xl text-lg font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
                                                 Institut Universitaire de la Cote
                                             </a>
                                         </Link>
@@ -845,11 +847,11 @@ const UniversityPage = (props) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex items-start border-t border-gray-400 py-5">
+                                <div className="flex items-start border-t border-gray-400 md:py-5 py-3">
                                     <div className="w-1/12 pt-2 text-gray-400"><FontAwesomeIcon icon={faCircle} className="w-3" /></div>
                                     <div className="w-11/12">
                                         <Link href="/">
-                                            <a className="md:text-xl font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
+                                            <a className="md:text-xl text-lg font-normal text-custom-primary truncate-2-lines max-h-12 leading-6">
                                                 Institut Universitaire de la Cote
                                             </a>
                                         </Link>
@@ -911,7 +913,7 @@ const UniversityPage = (props) => {
                         <div className="md:p-6 px-4 py-2">
 
                             <div className="flex justify-between space-x-4">
-                                <div>
+                                <div className="flex-1">
                                     <Link href="/university/pretoria">
                                         <a className="md:text-xl font-normal text-black truncate-2-lines max-h-13 leading-7">
                                             Institut Universitaire de la Cote
@@ -923,11 +925,13 @@ const UniversityPage = (props) => {
                                         </div>
                                     </div>
                                 </div>
-                                <img src="../univAshesi.jpeg" alt="" className="object-cover w-28 rounded-md"/>
+                                <div className="flex-none">
+                                    <img src="../univAshesi.jpeg" alt="" className="object-cover w-28 rounded-md h-full"/>
+                                </div>
                             </div>
-                            <hr className="my-6"/>
+                            <hr className="my-4 md:my-6"/>
                             <div className="flex justify-between space-x-4">
-                                <div>
+                                <div className="flex-1">
                                     <Link href="/university/pretoria">
                                         <a className="md:text-xl font-normal text-black truncate-2-lines max-h-13 leading-7">
                                             Institut Universitaire de la Cote
@@ -939,7 +943,9 @@ const UniversityPage = (props) => {
                                         </div>
                                     </div>
                                 </div>
-                                <img src="../univAshesi.jpeg" alt="" className="object-cover w-28 rounded-md"/>
+                                <div className="flex-none">
+                                    <img src="../univAshesi.jpeg" alt="" className="object-cover w-28 rounded-md h-full"/>
+                                </div>
                             </div>
 
 

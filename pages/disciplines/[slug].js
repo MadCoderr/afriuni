@@ -87,7 +87,6 @@ const DisciplinesPage = (props) => {
                         less='Show less'
                         className='text-justify'
                         anchorClass='text-custom-primary font-normal'
-                        onClick={""}
                         expanded={false}
                     >
 

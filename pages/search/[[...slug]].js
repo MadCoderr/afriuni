@@ -56,7 +56,7 @@ const SearchPage = (props) => {
                         <div className="grid grid-cols-3 gap-2 w-full text-base md:border-b border-gray-400 md:pb-3 pb-2 items-center">
                             <div className="font-medium hidden md:block">158 Computer Engineering Courses</div>
                             <div className="flex justify-center">
-                                <ButtonDefaultSecondary className="flex items-center justify-center md:space-x-2 space-x-2 rounded-lg w-full">
+                                <ButtonDefaultSecondary className="flex items-center justify-center md:space-x-2 space-x-2 rounded-lg w-full md:w-auto">
                                 <span className="relative">
                                     <span
                                         className="absolute -top-1.5 inline-flex rounded-full text-white bg-custom-secondary p-1">
@@ -76,7 +76,7 @@ const SearchPage = (props) => {
                                     <option value="revelance">Revelance</option>
                                 </select>
                             </div>
-                            <div className="flex justify-center" onClick={toggleFilter}>
+                            <div className="flex md:hidden justify-center" onClick={toggleFilter}>
                                 <ButtonRedPrimary className="block w-full rounded-lg flex items-center justify-center space-x-1 font-medium">
                                     <FontAwesomeIcon icon={faFilter} className="w-4" />
                                     <span className="text-xs">Filters</span>
@@ -85,9 +85,9 @@ const SearchPage = (props) => {
                             </div>
                         </div>
 
-                        <div className="font-normal pl-1">158 Computer Engineering Courses</div>
+                        <div className="font-normal pl-1 md:hidden block">158 Computer Engineering Courses</div>
 
-                        <div className="flex items-center space-x-2 text-sm md:text-xs mt-2 md:mt-6">
+                        <div className="flex items-center space-x-2 text-sm md:text-xs mt-2 md:mt-4">
                             <span className="font-medium hidden md:inline-block">Filter :</span> <span className="cursor-pointer bg-white border border-gray-400 py-1 px-3 rounded-full flex space-x-2"><span>Computer Engineering</span> <FontAwesomeIcon icon={faTimes} className="w-2" /></span>
                         </div>
                     </div>

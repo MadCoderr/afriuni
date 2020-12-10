@@ -53,7 +53,7 @@ const CoursesResultCard = (props) => {
                 </div>
             </div>
         </div>
-        <div className="row-span-3 col-span-1 md:border-l-2 border-gray-200 md:px-4 my-4 md:my-0 md:pr-2 md:space-y-4 md:block flex justify-between items-center space-x-2 w-full">
+        <div className="row-span-3 col-span-1 md:border-l-2 border-gray-200 md:px-4 my-4 md:my-0 md:pr-2 md:space-y-4 md:block flex justify-between items-center space-x-2 md:space-x-0 w-full">
             <div className="bg-gray-100 flex flex-col gap-1 items-center text-center md:px-2 px-4 md:py-3 py-1 md:text-base rounded-lg md:w-full">
                 <span className="text-gray-500">Tuition fees/year</span>
                 <span className="font-medium md:text-lg text-base">KSh 100,000</span>

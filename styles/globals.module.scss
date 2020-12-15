@@ -64,3 +64,16 @@
     @apply flex px-0 w-full space-x-3 outline-none focus:outline-none items-stretch border-0;
   }
 }
+
+.accordion_3 {
+  @apply bg-transparent w-full;
+
+  .accordion_heading_3 {
+    @apply flex justify-between items-stretch outline-none focus:outline-none pl-6 py-3 border-0;
+    //@apply flex justify-between items-stretch focus:outline-none pl-6 py-5;
+  }
+
+  .accordion_subheading_3{
+    @apply flex px-0 w-full space-x-3 outline-none focus:outline-none items-stretch border-0;
+  }
+}

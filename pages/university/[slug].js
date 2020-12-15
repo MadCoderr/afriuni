@@ -215,7 +215,7 @@ const UniversityPage = (props) => {
                 <div className="col-span-2">
 
                     {((isPremium && isCurrentMobile) || !isPremium) && (
-                        <div className="bg-white border border-gray-200 md:p-8 py-4 px-4 md:mb-6 mb-4">
+                        <div className="bg-white border border-gray-200 md:p-4 py-4 px-4 md:mb-6 mb-4">
 
                             <div className="flex justify-between">
                                 <div className="">
@@ -982,7 +982,7 @@ export async function getStaticProps({params}) {
         props: { type: params.slug },
         // Re-generate the post at most once per second
         // if a request comes in
-        // revalidate: 1,
+        revalidate: 1,
     }
 }
 

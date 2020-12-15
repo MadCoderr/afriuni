@@ -376,5 +376,31 @@ const CountryPage = (props) => {
     </div>
 };
 
+// This function gets called at build time
+export async function getStaticPaths() {
+
+    return {
+        // Only `/posts/1` and `/posts/2` are generated at build time
+        paths: [],
+        // Enable statically generating additional pages
+        // For example: `/posts/3`
+        fallback: true,
+    }
+}
+
+// This also gets called at build time
+export async function getStaticProps({params}) {
+    // params contains the post `id`.
+    // If the route is like /posts/1, then params.id is 1
+
+    // Pass post data to the page via props
+    return {
+        props: { slug: params.slug },
+        // Re-generate the post at most once per second
+        // if a request comes in
+        revalidate: 1,
+    }
+}
+
 
 export default CountryPage;

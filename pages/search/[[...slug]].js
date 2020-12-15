@@ -14,6 +14,7 @@ import {
 } from "../../src/components/styleComponent/button";
 import {faBell} from "@fortawesome/free-regular-svg-icons";
 import {useMediaQuery} from "react-responsive";
+import Pagination from "../../src/components/general/pagination";
 
 
 const SearchPage = (props) => {
@@ -99,6 +100,8 @@ const SearchPage = (props) => {
                     <CoursesResultCard/>
                     <CoursesResultCard/>
                     <CoursesResultCard/>
+
+                    <Pagination totalRecords={150} pageLimit={10} pageNeighbours={2} onPageChanged={(data) => console.log(data) } pageCurrent={3}/>
 
                 </div>
             </div>

@@ -31,8 +31,8 @@ const CoursesResultCard = (props) => {
                     </div>
                 </div>
                 <div className="col-span-3 md:p-3 flex flex-col justify-between">
-                    <Link href={"/"}>
-                        <a className="text-custom-primary text-2xl font-normal block truncate-2-lines max-h-14 leading-6 mt-4 md:mt-0">Computer Engineering, BEng</a>
+                    <Link href={"/courses/2000/page-of-test"}>
+                        <a className="text-custom-primary text-2xl font-normal block truncate-2-lines max-h-14 leading-7 mt-4 md:mt-0">Computer Engineering, BEng</a>
                     </Link>
                     <div className="flex justify-between items-center md:space-y-6 my-3 md:my-0 text-base">
                         <div className="font-normal">
@@ -53,14 +53,14 @@ const CoursesResultCard = (props) => {
                 </div>
             </div>
         </div>
-        <div className="row-span-3 col-span-1 md:border-l-2 border-gray-200 md:px-4 my-4 md:my-0 md:pr-2 md:space-y-4 md:block flex justify-between items-center space-x-2 md:space-x-0 w-full">
+        <div className="row-span-3 col-span-1 md:border-l-2 border-gray-200 md:px-4 my-4 md:my-0 md:pr-2 md:space-y-4 md:block flex justify-between items-center space-x-2 md:space-x-0 w-full text-sm md:text-base">
             <div className="bg-gray-100 flex flex-col gap-1 items-center text-center md:px-2 px-4 md:py-3 py-1 md:text-base rounded-lg md:w-full">
                 <span className="text-gray-500">Tuition fees/year</span>
-                <span className="font-medium md:text-lg text-base">KSh 100,000</span>
+                <span className="font-medium md:text-lg">KSh 100,000</span>
             </div>
             <div className="bg-gray-100 flex flex-col gap-1 items-center text-center md:px-2 px-4 md:py-3 py-1 md:text-base rounded-lg md:w-full">
                 <span className="text-gray-500">Class Begin</span>
-                <span className="font-medium md:text-lg text-base">Jan 2021 | Aug 2021</span>
+                <span className="font-medium md:text-lg">Jan 2021 | Aug 2021</span>
             </div>
         </div>
         <div className="row-span-1 col-span-3 border-t-2 border-gray-200 p-2 text-gray-400 md:text-base md:font-normal">

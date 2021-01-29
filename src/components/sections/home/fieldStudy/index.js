@@ -11,16 +11,11 @@ const FieldStudySection = (props) => {
                 <h3 className="text-2xl md:text-5xl font-medium text-custom-secondary text-center mt-5 md:mb-10">Fields of Study</h3>
 
                 <div className="mt-5 md:mt-10 grid md:grid-cols-5 grid-cols-2 gap-x-3 md:gap-x-6 gap-y-4 md:gap-y-8">
-                    <HomeFieldStudyCard title="Engenieries"/>
-                    <HomeFieldStudyCard title="Social Sciences"/>
-                    <HomeFieldStudyCard title="Engenieries"/>
-                    <HomeFieldStudyCard title="Social Sciences"/>
-                    <HomeFieldStudyCard title="Engenieries"/>
-                    <HomeFieldStudyCard title="Social Sciences"/>
-                    <HomeFieldStudyCard title="Engenieries"/>
-                    <HomeFieldStudyCard title="Social Sciences"/>
-                    <HomeFieldStudyCard title="Engenieries"/>
-                    <HomeFieldStudyCard title="Social Sciences"/>
+
+                    {props.data.categories.nodes.map((item, i) => {
+                        return <HomeFieldStudyCard title={item.name} image={item.logo} key={i}/>
+                    })}
+
                 </div>
 
             </div>

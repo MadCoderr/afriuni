@@ -50,160 +50,38 @@ const CategoryMenu = (props) => {
         <Tabs className='flex flex-col md:flex-row md:divide-x-2 md:py-5 relative h-full' selectedIndex={tabIndex} onSelect={onSelectTab}>
 
             <TabList className="text-custom-primary_2 bg-white h-full">
-                <Tab className={`${styles.tabCategory} space-x-3 px-5 py-3 md:p-0 border-b md:border-0 md:mb-2`} selectedClassName={`md:text-custom-secondary focus:outline-none`}>
-                    <img src="icone-category.png" alt="" className="h-8 md:h-10"/>
-                    <div className={"w-56"}>
-                        <h3 className="font-medium md:font-normal">Information Technology</h3>
-                        <div className="text-gray-400 text-xs hidden md:inline-block">10 Courses</div>
-                    </div>
-                </Tab>
-                <Tab className={`${styles.tabCategory} space-x-3 px-5 py-3 md:p-0 border-b md:border-0 md:mb-2`} selectedClassName={`md:text-custom-secondary focus:outline-none`}>
-                    <img src="icone-category.png" alt="" className="h-8 md:h-10"/>
-                    <div className={"w-56"}>
-                        <h3 className="font-medium md:font-normal">Information Technology</h3>
-                        <div className="text-gray-400 text-xs hidden md:inline-block">10 Courses</div>
-                    </div>
-                </Tab>
-                <Tab className={`${styles.tabCategory} space-x-3 px-5 py-3 md:p-0 border-b md:border-0 md:mb-2`} selectedClassName={`md:text-custom-secondary focus:outline-none`}>
-                    <img src="icone-category.png" alt="" className="h-8 md:h-10"/>
-                    <div className={"w-56"}>
-                        <h3 className="font-medium md:font-normal">Information Technology</h3>
-                        <div className="text-gray-400 text-xs hidden md:inline-block">10 Courses</div>
-                    </div>
-                </Tab>
+                {props.data.map((item, i) =>  {
+                    return <Tab key={i} className={`${styles.tabCategory} space-x-3 px-5 py-3 md:p-0 border-b md:border-0 md:mb-2 cursor-pointer`} selectedClassName={`md:text-custom-secondary focus:outline-none`}>
+                        <img src={item.logo} alt="" className="h-8 md:h-10"/>
+                        <div className={"w-56"}>
+                            <h3 className="font-medium md:font-normal">{item.name}</h3>
+                            <div className="text-gray-400 text-xs hidden md:inline-block">{item.count} Courses</div>
+                        </div>
+                    </Tab>
+                })}
             </TabList>
 
             <div className={`${clickedTab ? 'block' : 'hidden md:block'} w-full md:relative min-h-3/4 bg-white absolute bg-white top-0 h-full md:h-auto`}>
-                <TabPanel className="opacity-0" selectedClassName="opacity-100 bg-white">
+                {props.data.map((item,i) => {
 
+                    return <TabPanel className="opacity-0" selectedClassName="opacity-100 bg-white" key={i}>
 
-                    <div className="md:px-10 col-count-1 col-w-sm w-full md:space-y-3 col-gap-sm md:pb-0">
+                        <div className="md:px-10 col-count-1 col-w-sm w-full md:space-y-3 col-gap-sm md:pb-0">
 
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category
-                            </a>
-                        </Link>
+                            {item.children.nodes.map((child, i) => {
+                                return <Link href="/" >
+                                    <a className="text-base font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0" key={i}>
+                                        {child.name}
+                                    </a>
+                                </Link>
+                            })}
 
+                        </div>
 
-                    </div>
+                    </TabPanel>
 
+                })}
 
-                </TabPanel>
-                <TabPanel className="opacity-0" selectedClassName="opacity-100 bg-white">
-                    <div className="md:px-10 col-count-1 col-w-sm w-full md:space-y-3 col-gap-sm md:pb-0">
-
-                        <Link href="/" >
-                            <a className="md:font-light font-medium hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category 2
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category 2
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category 2
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category 2
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category 2
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category 2
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category 2
-                            </a>
-                        </Link>
-
-
-                    </div>
-                </TabPanel>
-                <TabPanel className="opacity-0" selectedClassName="opacity-100 bg-white">
-                    <div className="md:px-10 col-count-1 col-w-sm w-full md:space-y-3 col-gap-sm md:pb-0">
-
-                        <Link href="/" >
-                            <a className="md:font-light font-medium hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category 3
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category 3
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category 3
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category 3
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category 3
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category 3
-                            </a>
-                        </Link>
-                        <Link href="/" >
-                            <a className="font-medium md:font-light hover:text-custom-secondary block py-4 border-b border-gray-400 md:border-0 md:py-0 px-5 md:px-0">
-                                Sub category 3
-                            </a>
-                        </Link>
-
-
-                    </div>
-                </TabPanel>
             </div>
 
         </Tabs>

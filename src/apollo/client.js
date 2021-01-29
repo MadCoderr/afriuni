@@ -1,6 +1,6 @@
- import { ApolloClient , InMemoryCache, createHttpLink } from "@apollo/client";
+import { ApolloClient , InMemoryCache, createHttpLink } from "@apollo/client";
 
- const prod = process.env.NODE_ENV === 'production';
+const prod = process.env.NODE_ENV === 'production';
 
 const defaultOptions = {
     watchQuery : {
@@ -18,7 +18,7 @@ const cache = new InMemoryCache({
 });
 
 const link = createHttpLink({
-    uri: (prod ? "" : "http://afriuni.test") + "/graphql",
+    uri: (prod ? "https://wordpress-502086-1591393.cloudwaysapps.com" : "https://wordpress-502086-1591393.cloudwaysapps.com") + "/graphql",
 });
 
 const client = new ApolloClient({

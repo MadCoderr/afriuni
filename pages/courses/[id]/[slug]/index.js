@@ -235,7 +235,7 @@ const CoursesPage = (props) => {
                     </div>
 
                     <div className="md:mb-6 mb-4 px-3 md:px-0">
-                        <Accordion className={styles.accordion_3 + " space-y-6"} preExpanded={[1]}>
+                        <Accordion className={styles.accordion_3 + " md:space-y-6 space-y-4"} preExpanded={[1]}>
                             <AccordionItem activeClassName="bg-black text-white rounded-t-xl font-normal" uuid={1} className={"bg-custom-primary bg-opacity-25 text-black rounded-xl"}>
                                 <AccordionItemHeading>
                                     <AccordionItemButton className={styles.accordion_heading_3}>

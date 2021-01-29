@@ -11,8 +11,11 @@ import {ContainerNavStyle} from "./styles";
 import OthersMenu from "./others";
 import Link from "next/link";
 
+import {compose} from "recompose";
+import {inject, observer} from "mobx-react";
 
-const Header = () => {
+
+const Header = (props) => {
 
     const [openCategory, setOpenCategory] = React.useState(false);
     const [openCountry, setOpenCountry] = React.useState(false);
@@ -23,6 +26,30 @@ const Header = () => {
     const isMobile = useMediaQuery({ maxWidth: 767 });
     const [isOpen, setIsOpen] = React.useState(false);
     const [isCurrentMobile, setIsCurrentMobile] = React.useState(false);
+
+    const [categories, setCategories] = React.useState([]);
+    const [locations, setLocations] = React.useState([]);
+
+    const getCategories = async () => {
+        const cat = props.header.getCategories();
+        return cat;
+    }
+
+    const getLocations = async () => {
+        const loc = props.header.getLocation();
+        return loc;
+    }
+
+    React.useEffect(() => {
+        getCategories().then(r => {
+            setCategories(r.data)
+        });
+
+        getLocations().then(r => {
+            setLocations(r.data);
+        })
+        // setCategories();
+    }, [])
 
     React.useEffect(() =>{
         const elements = document.querySelector('body');
@@ -121,7 +148,7 @@ const Header = () => {
     return <>
 
         <ContainerNavStyle className={`${isOpen ? "openNav" : ""} bg-white shadow-md fixed w-full relative inline-block`}>
-        <div className="container mx-auto px-4 text-sm py-4 md:py-0">
+            <div className="container mx-auto px-4 text-sm py-4 md:py-0">
             <nav className="flex justify-between items-center">
                 <div className="md:w-4/5 block md:flex justify-start md:space-x-10 items-center">
                     <div>
@@ -159,11 +186,11 @@ const Header = () => {
                                 <div className="container mx-auto md:px-6 md:py-4 text-sm">
 
                                     {openCategory && (
-                                        <CategoryMenu/>
+                                        <CategoryMenu data={categories}/>
                                     )}
 
                                     {openCountry && (
-                                        <CountryMenu/>
+                                        <CountryMenu data={locations}/>
                                     )}
 
                                     {openOther && (
@@ -189,13 +216,15 @@ const Header = () => {
                 </div>
             </nav>
         </div>
-
-
-    </ContainerNavStyle>
+        </ContainerNavStyle>
 
         {/*<div className="absolute inset-0">*/}
         {/*</div>*/}
     </>
 };
 
-export default Header;
+// export default Header;
+export default compose(
+    inject('header'),
+    observer
+)(Header)

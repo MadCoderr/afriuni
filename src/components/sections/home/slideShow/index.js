@@ -6,10 +6,13 @@ import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import Dropdown, {ItemDropdown} from "../../../general/dropdown";
 import {Input} from "../../../styleComponent/input";
 import {ButtonRedPrimary} from "../../../styleComponent/button";
+import {compose} from "recompose";
+import {inject, observer} from "mobx-react";
 
-const SlideShowSection = () => {
+const SlideShowSection = (props) => {
 
     const slideshow = React.useRef(null);
+    const [dataSlider, setDataSlider] = React.useState([]);
 
     const settings = {
         dots: true,
@@ -23,6 +26,32 @@ const SlideShowSection = () => {
         accessibility: false
 
     };
+
+    React.useEffect(() => {
+
+        const results = props.data.universitiesFeatured.nodes;
+        const datas = [];
+
+        results.map((item, i) => {
+            const lists = item.featured_list.nodes;
+            const listsPrio = item.featured_data;
+
+            lists.map((subitem, i) => {
+                if(datas.length < 10) {
+                    const currentItem = subitem;
+                    const images = listsPrio.filter(order => parseInt(order.id) === subitem.databaseId);
+
+                    currentItem['image'] = images[0].image;
+
+                    datas.push(currentItem)
+                }
+            });
+
+        });
+
+        setDataSlider(datas);
+
+    }, [props.data]);
 
     return <SlideShowContainer className={`relative z-10`}>
 
@@ -53,38 +82,31 @@ const SlideShowSection = () => {
 
             <Slider {...settings} ref={slideshow} className="overflow-hidden relative">
 
-                <div className="relative h-300 md:h-500">
-                    <div
-                        className="absolute inset-0 bg-center bg-cover"
-                        style={{ backgroundImage: "url('univAshesi.jpeg')" }}>
-                    </div>
-                    <div
-                        className="absolute inset-0 bg-cover bg-black bg-opacity-25"
-                    />
-                    <div className="absolute bottom-0 left-0 py-4 px-2 md:px-6 font-medium text-white text-sm md:text-base">
-                        Ashesi University
-                    </div>
-                    <div className="absolute bottom-0 right-0 py-4 px-2 md:px-4 font-medium text-white text-sm md:text-base flex items-end">
-                       <FontAwesomeIcon icon={faMapMarkerAlt} className="w-5 mr-3"/> Accra, Ghana
-                    </div>
-                </div>
+                {dataSlider.map((item, i) => {
 
-                <div className="relative h-300 md:h-500">
-                    <div
-                        className="absolute inset-0 bg-center bg-cover"
-                        style={{ backgroundImage: "url('univAshesi.jpeg')" }}>
+                    return <div className="relative h-300 md:h-500">
+                        <div
+                            className="absolute inset-0 bg-center bg-cover"
+                            style={{ backgroundImage: "url('"+item.image+"')" }}>
+                        </div>
+                        <div
+                            className="absolute inset-0 bg-cover bg-black bg-opacity-25"
+                        />
+                        <div className="absolute bottom-0 left-0 py-4 px-2 md:px-6 font-medium text-white text-sm md:text-base">
+                            {item.title}
+                        </div>
+                        <div className="absolute bottom-0 right-0 py-4 px-2 md:px-4 font-medium text-white text-sm md:text-base flex items-end">
+                            <FontAwesomeIcon icon={faMapMarkerAlt} className="w-5 mr-3"/>
+                            {item.locations.nodes.map((loc, i) => {
+                                let coma = "";
+                                if(i > 0) coma += ", "
+                                return <span key={i} className={"lowercase capitalize"}>
+                                {coma}{loc.name}
+                            </span>
+                            })}
+                        </div>
                     </div>
-                    <div
-                        className="absolute inset-0 bg-cover bg-black bg-opacity-25"
-                    />
-                    <div className="absolute bottom-0 left-0 py-4 px-2 md:px-6 font-medium text-white text-sm md:text-base">
-                        Ashesi University
-                    </div>
-                    <div className="absolute bottom-0 right-0 py-4 px-2 md:px-4 font-medium text-white text-sm md:text-base flex items-end">
-                        <FontAwesomeIcon icon={faMapMarkerAlt} className="w-5 mr-3" /> Accra, Ghana
-                    </div>
-                </div>
-
+                })}
 
             </Slider>
 
@@ -99,4 +121,8 @@ const SlideShowSection = () => {
 };
 
 
-export default SlideShowSection;
+// export default SlideShowSection;
+export default compose(
+    inject('header'),
+    observer
+)(SlideShowSection)

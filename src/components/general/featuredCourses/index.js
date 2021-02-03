@@ -18,14 +18,16 @@ const FeaturedCoursesSection = (props) => {
             let end_date = item.end_date;
             let show = true;
             if(end_date){
-                end_date = convertDate(end_date);
+                end_date = new Date(end_date);
                 const today = new Date();
                 if(today > end_date) show = false;
             }
 
             if(show){
                 lists.map((subitem, i) => {
-                    datas.push(subitem)
+                    if(datas.length < 6) {
+                        datas.push(subitem)
+                    }
                 });
             }
         })
@@ -34,11 +36,6 @@ const FeaturedCoursesSection = (props) => {
 
     }, [props.data]);
 
-    const convertDate = (date) => {
-        const dateParts = date.split("/");
-        return new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
-    }
-
     return <div className={props.sectionClassName}>
 
         <div className="container mx-auto px-4">
@@ -46,7 +43,7 @@ const FeaturedCoursesSection = (props) => {
 
             <div className="mt-5 md:mt-10 space-y-4 md:space-y-0 md:grid md:grid-cols-3 grid-cols-none gap-x-4 gap-y-2 md:gap-y-6 grid-flow-row auto-cols-fr">
                 {data.map((item, i) => {
-                    return <HomeFeaturedCourseCard data={item}/>
+                    return <HomeFeaturedCourseCard data={item} key={i}/>
                 })}
             </div>
 

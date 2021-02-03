@@ -15,7 +15,7 @@ const DestinationSection = (props) => {
 
             <h3 className="text-2xl md:text-5xl font-medium text-custom-primary_2 text-center mt-5 md:mb-10">Study Destinations</h3>
 
-            <div className="mt-5 md:mt-10 grid md:grid-cols-5 grid-cols-3 gap-x-3 md:gap-x-6 gap-y-4 md:gap-y-8">
+            <div className="mt-5 md:mt-10 grid md:grid-cols-5 grid-cols-2 gap-x-3 md:gap-x-6 gap-y-4 md:gap-y-8 justify-center items-center">
 
                 {props.data.countries.nodes.map((item, i) => {
                     return <DestinationCard image={item.image} name={item.name} key={i}/>

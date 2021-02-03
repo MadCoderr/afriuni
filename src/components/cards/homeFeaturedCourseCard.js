@@ -26,16 +26,16 @@ const HomeFeaturedCourseCard = (props) => {
                 </div>
                 <div className="flex justify-between items-center w-full font-medium md:font-normal mt-1 md:mt-0">
 
-                    <div className="text-gray-400 text-xs md:text-base capitalize">
+                    <div className="text-gray-400 text-xs md:text-base">
                         {props.data.university.nodes[0].locations.nodes.map((loc, i) => {
                             let coma = "";
                             if(i > 0) coma += ", "
-                            return <span key={i} className={"capitalize"}>
+                            return <span key={i} className={"lowercase capitalize"}>
                                 {coma}{loc.name}
                             </span>
                         })}
                     </div>
-                    <div className="text-gray-400 text-xs md:text-base md:hidden">
+                    <div className="text-gray-400 text-xs md:text-base md:hidden ml-4">
                         {props.data.studiesLevel.nodes[0].name}
                     </div>
                 </div>

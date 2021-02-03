@@ -1,8 +1,43 @@
 import React from 'react';
 import HomeFeaturedCourseCard from "../../cards/homeFeaturedCourseCard";
+import {list} from "postcss";
 
 
 const FeaturedCoursesSection = (props) => {
+
+    const [data, setData] = React.useState([]);
+    const [priority, setPriority] = React.useState([]);
+
+    React.useEffect(() => {
+        const results = props.data.coursesFeatured.nodes;
+        const datas = [];
+
+        results.map((item, i) => {
+            const lists = item.featured_list.nodes;
+
+            let end_date = item.end_date;
+            let show = true;
+            if(end_date){
+                end_date = convertDate(end_date);
+                const today = new Date();
+                if(today > end_date) show = false;
+            }
+
+            if(show){
+                lists.map((subitem, i) => {
+                    datas.push(subitem)
+                });
+            }
+        })
+
+        setData(datas);
+
+    }, [props.data]);
+
+    const convertDate = (date) => {
+        const dateParts = date.split("/");
+        return new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
+    }
 
     return <div className={props.sectionClassName}>
 
@@ -10,14 +45,9 @@ const FeaturedCoursesSection = (props) => {
             <h3 className={`font-medium text-custom-primary_2 text-center mt-5 md:mb-10 ${props.titleClassName}`}>{props.title}</h3>
 
             <div className="mt-5 md:mt-10 space-y-4 md:space-y-0 md:grid md:grid-cols-3 grid-cols-none gap-x-4 gap-y-2 md:gap-y-6 grid-flow-row auto-cols-fr">
-
-                <HomeFeaturedCourseCard title="Electronic and Computer Engineering, PhD"/>
-                <HomeFeaturedCourseCard title="Computer Engineering"/>
-                <HomeFeaturedCourseCard title="Electronic and Computer Engineering, PhD"/>
-                <HomeFeaturedCourseCard title="Computer Engineering"/>
-                <HomeFeaturedCourseCard title="Electronic and Computer Engineering, PhD"/>
-                <HomeFeaturedCourseCard title="Computer Engineering"/>
-
+                {data.map((item, i) => {
+                    return <HomeFeaturedCourseCard data={item}/>
+                })}
             </div>
 
         </div>

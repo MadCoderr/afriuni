@@ -1,25 +1,19 @@
 import { gql } from '@apollo/client';
+import CategoryFragment from "./fragments/category";
 
-export const GET_CATEGORIE = gql `
+export const GET_CATEGORIE = gql`
     query {
         categories : specialisations(where: {parent: 0}) {
             nodes {
-              id
-              specialisationId
-              name
-              slug
+              ...CategoryFragment
               logo
-              count
               children {
                 nodes {
-                  id
-                  specialisationId
-                  name
-                  slug
-                  count
+                  ...CategoryFragment
                 }
               }      
             }
-        }
+        }        
     }
+    ${CategoryFragment}
 `

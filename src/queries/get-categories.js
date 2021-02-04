@@ -7,7 +7,7 @@ export const GET_CATEGORIE = gql`
             nodes {
               ...CategoryFragment
               logo
-              children {
+              children (first: 100) {
                 nodes {
                   ...CategoryFragment
                 }

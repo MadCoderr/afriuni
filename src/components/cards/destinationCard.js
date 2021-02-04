@@ -5,7 +5,7 @@ import Link from "next/link";
 const DestinationCard = (props) => {
 
     return <div className="relative z-10">
-        <Link href="/country/south-africa">
+        <Link href={`/country/${props.slug}`}>
             <a className="block relative">
                 <img src={props.image} alt={props.name} className="h-32 w-full md:h-48 rounded-xl"/>
 

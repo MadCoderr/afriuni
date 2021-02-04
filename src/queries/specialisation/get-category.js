@@ -10,13 +10,13 @@ export const GET_CATEGORY_BY = gql`
               databaseId
               university_count
               count
-              children {
+              children (first: 100) {
                   nodes {
                     id
                     databaseId
                     name
                     slug
-                    courses {
+                    courses (first: 100) {
                       nodes{
                         id
                         databaseId

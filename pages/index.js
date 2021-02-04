@@ -9,8 +9,8 @@ import FeaturedUniversitySection from "../src/components/sections/home/featuredU
 import client from "../src/apollo/client";
 import {GET_CATEGORIE} from "../src/queries/get-categories";
 import {GET_COUNTRIES} from "../src/queries/get-countries";
-import {GET_FEATURED_COURSE} from "../src/queries/home/get-featuredCourse";
-import {GET_FEATURED_UNIVERSITY} from "../src/queries/home/get-featuredUniversity";
+import {GET_FEATURED_COURSE} from "../src/queries/home/get-featuredCourses";
+import {GET_FEATURED_UNIVERSITY} from "../src/queries/home/get-featuredUniversities";
 
 export default function Home(props) {
   return (

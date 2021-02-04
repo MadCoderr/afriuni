@@ -18,7 +18,7 @@ const HomeFeaturedUniversityCard = (props) => {
                 </a>
             </Link>
             <div className="flex md:flex-row flex-col space-y-1 md:space-y-0 md:justify-between md:items-center flex-1">
-                <div className="text-gray-400 text-xs md:text-base">
+                <div className="text-gray-400 text-xs md:text-sm">
                     {props.data.locations.nodes.map((loc, i) => {
                         let coma = "";
                         if(i > 0) coma += ", "
@@ -27,7 +27,7 @@ const HomeFeaturedUniversityCard = (props) => {
                             </span>
                     })}
                 </div>
-                <div className="text-custom-secondary text-xs md:text-base">{props.data.course_count} Courses</div>
+                <div className="text-custom-secondary text-xs md:text-sm">{props.data.course_count} Courses</div>
             </div>
         </div>
     </div>

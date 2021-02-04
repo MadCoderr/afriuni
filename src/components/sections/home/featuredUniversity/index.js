@@ -51,7 +51,7 @@ const FeaturedUniversitySection = (props) => {
 
             <h3 className="text-center md:text-left text-2xl md:text-5xl font-medium text-custom-primary_2 mt-5 md:mb-10">Featured Universities</h3>
 
-            <div className="mt-5 md:mt-10 grid md:grid-cols-4 grid-cols-2 gap-x-2 gap-y-3 md:gap-y-6 grid-flow-row auto-rows-fr auto-cols-fr">
+            <div className="mt-5 md:mt-10 grid md:grid-cols-4 grid-cols-2 gap-x-6 gap-y-3 md:gap-y-6 grid-flow-row auto-rows-fr auto-cols-fr">
 
                 {data.map((item, i) => {
                     return <HomeFeaturedUniversityCard data={item} key={i}/>

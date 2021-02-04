@@ -5,7 +5,7 @@ import Image from 'next/image'
 const HomeFieldStudyCard = (props) => {
 
     return <div className={"flex-1 flex justify-center bg-white shadow-xl p-3 md:p-6 rounded-xl"}>
-        <Link href="/">
+        <Link href={`/disciplines/${props.slug}`}>
             <a className={"flex items-center flex-col space-y-4 relative"}>
              <div className="relative">
                  <img className="w-full h-16 md:h-40 object-cover" src={props.image}  alt={props.title} />

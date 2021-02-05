@@ -84,7 +84,7 @@ const SlideShowSection = (props) => {
 
                 {dataSlider.map((item, i) => {
 
-                    return <div className="relative h-300 md:h-500">
+                    return <div className="relative h-300 md:h-500" key={i}>
                         <div
                             className="absolute inset-0 bg-center bg-cover"
                             style={{ backgroundImage: "url('"+item.image+"')" }}>
